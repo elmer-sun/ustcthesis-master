@@ -1,0 +1,245 @@
+% !TeX root = ../main.tex
+\chapter{交错磁体自旋群分类与球谐函数类比}
+\label{classification}
+
+本章基于自旋群理论，详细阐述交错磁性的对称性分类。
+根据Šmejkal等人的工作\cite{Smejkal2022PRX}，在非相对论极限下，共线磁结构由自旋点群描述。
+区别于铁磁体（$\mathbf{R}_s^{\mathrm{I}}$）和常规反铁磁体（$\mathbf{R}_s^{\mathrm{II}}$），
+交错磁相由第三类非平庸自旋点群$\mathbf{R}_s^{\mathrm{III}}$描述，其一般形式为：
+\begin{equation}
+\mathbf{R}_s^{\mathrm{III}} = [E\|\mathbf{H}] + [C_2\|\mathbf{G}-\mathbf{H}].
+\label{eq:R3_general}
+\end{equation}
+其中$\mathbf{G}$是包含空间反演的晶体学Laue群，$\mathbf{H}$是$\mathbf{G}$的半子群且必须包含空间反演$P$。
+陪集$\mathbf{G}-\mathbf{H}=A\mathbf{H}$中的生成元$A$只能是固有或非固有旋转操作，不能是空间反演或纯平移\cite{Smejkal2022PRX}。
+$\mathbf{G}$和$\mathbf{H}$的不同组合共产生十种非平庸自旋Laue群，完全涵盖了所有可能的交错磁体对称性。
+
+这十种自旋群可根据其在布里渊区中保护的自旋简并节面数量分为三类：
+具有两个节面的$d$波交错磁体，四个节面的$g$波交错磁体，和六个节面的$i$波交错磁体\cite{Smejkal2022PRX,Smejkal2022Landscape,liu_symmetry_2026}。
+值得注意的是，当陪集生成元导致的节线不包含在节面内时，在$\Gamma$点附近可等效看作额外的节面，从而与直接计数的节面数一致。
+
+\section{$d$波交错磁体}\label{sec:d-wave}
+
+$d$波交错磁体具有两个自旋简并节面，包括自旋群$2'/m'$、$m'm'm$、$4'/m$和$4'/mm'm$。
+
+\subsection*{$2'/m'$群}
+由Laue群$\mathbf{G}=C_{2h}$及其子群$\mathbf{H}=C_i$构造：
+\[
+\mathbf{R}_s^{\mathrm{III}}(2'/m') = [E\|C_i] + [C_2\|C_{2h}-C_i].
+\]
+其中，
+\[
+\mathbf{H}=C_i = \{E,\ P\},\quad
+\mathbf{G}-\mathbf{H}=C_{2h}-C_i = \{C_{2z},\ M_z\}.
+\]
+对称操作$[C_2\|C_{2z}]$使能带满足$\varepsilon^{\uparrow}(k_x,k_y,k_z)=\varepsilon^{\downarrow}(-k_x,-k_y,k_z)$，在$k_x=k_y=0$处形成节线；
+$[C_2\|M_z]$给出$\varepsilon^{\uparrow}(k_x,k_y,k_z)=\varepsilon^{\downarrow}(k_x,k_y,-k_z)$，在$k_z=0$平面形成节面。
+该节线不在此节面内，故在$\Gamma$点附近等效具有两个节面。
+
+\subsection*{$m'm'm$群}
+由$\mathbf{G}=D_{2h}$和$\mathbf{H}=C_{2h}$得到：
+\[
+\mathbf{R}_s^{\mathrm{III}}(m'm'm) = [E\|C_{2h}] + [C_2\|D_{2h}-C_{2h}].
+\]
+其中，
+\[
+\mathbf{H}=C_{2h} = \{E,\ C_{2z},\ P,\ M_z\},\quad
+\mathbf{G}-\mathbf{H}=D_{2h}-C_{2h} = \{C_{2x},\ C_{2y},\ M_x,\ M_y\}.
+\]
+由$[C_2\|M_x]$和$[C_2\|M_y]$分别导出节面$k_x=0$和$k_y=0$；节线$k_z=0,k_x=0$和$k_z=0,k_y=0$位于节面交线，不影响节面计数。
+
+\subsection*{$4'/m$群}
+由$\mathbf{G}=C_{4h}$和$\mathbf{H}=C_{2h}$构造：
+\[
+\mathbf{R}_s^{\mathrm{III}}(4'/m) = [E\|C_{2h}] + [C_2\|C_{4h}-C_{2h}].
+\]
+其中，
+\[
+\mathbf{H}=C_{2h} = \{E,\ C_{2z},\ P,\ M_z\},\quad
+\mathbf{G}-\mathbf{H}=C_{4h}-C_{2h} = \{C_{4z},C_{4z}^3,\ S_4^3,\ S_4\}.
+\]
+$[C_2\|C_{4z}]$提供$\varepsilon^{\uparrow}(k_x,k_y,k_z)=\varepsilon^{\downarrow}(k_y,-k_x,k_z)$，产生节线$k_x=k_y=0$；
+$[C_2\|S_4]$操作推出节面$k_z=0$。节线不在此节面内，故$\Gamma$点附近等效为两个节面。
+
+\subsection*{$4'/mm'm$群}
+由$\mathbf{G}=D_{4h}$和$\mathbf{H}=D_{2h}$得到：
+\[
+\mathbf{R}_s^{\mathrm{III}}(4'/mm'm) = [E\|D_{2h}] + [C_2\|D_{4h}-D_{2h}].
+\]
+其中，
+\[
+\begin{aligned}
+\mathbf{H}=D_{2h} &= \{E,\ C_{2z},\ C_{2x},\ C_{2y},\ P,\ M_x,\ M_y,\ M_z\},\\
+\mathbf{G}-\mathbf{H}=D_{4h}-D_{2h} &= \{C_{4z},\ C_{4z}^3,\ C_{2[110]},\ C_{2[1\bar10]},\ S_4,\ S_4^3,\ M_{[110]},\ M_{[1\bar10]}\}.
+\end{aligned}
+\]
+节面为$k_x+k_y=0$和$k_x-k_y=0$，包含节线$k_z=0,k_x\pm k_y=0$等。
+
+\section{$g$波交错磁体}\label{sec:g-wave}
+
+$g$波交错磁体具有四个自旋简并节面，包括自旋群$4/mm'm'$、$\bar{3}m'$、$6'/m'$和$6'/m'mm'$。
+
+\subsection*{$4/mm'm'$群}
+由$\mathbf{G}=D_{4h}$和$\mathbf{H}=C_{4h}$构造：
+\[
+\mathbf{R}_s^{\mathrm{III}}(4/mm'm') = [E\|C_{4h}] + [C_2\|D_{4h}-C_{4h}].
+\]
+其中，
+\[
+\begin{aligned}
+\mathbf{H} = C_{4h} &= \{ E,\ C_{4z},\ C_{2z},\ C_{4z}^3,\ M_z,\ P,\ S_4,\ S_4^3 \}, \\
+\mathbf{G}-\mathbf{H}=D_{4h}-C_{4h} &= \{ C_{2x},\ C_{2y},\ C_{2[110]},\ C_{2[1\bar10]},\ M_x,\ M_y,\ M_{[110]},\ M_{[1\bar10]} \}.
+\end{aligned}
+\]
+四个节面为$k_x=0$、$k_y=0$、$k_x+k_y=0$、$k_x-k_y=0$，与镜面对称性一一对应。
+
+\subsection*{$\bar{3}m'$群}
+由$\mathbf{G}=D_{3d}$和$\mathbf{H}=C_{3i}$得到：
+\[
+\mathbf{R}_s^{\mathrm{III}}(\bar{3}m') = [E\|C_{3i}] + [C_2\|D_{3d}-C_{3i}].
+\]
+其中，
+\[
+\begin{aligned}
+\mathbf{H}=C_{3i} &= \{E,\ P,\ C_{3z},\ C_{3z}^2,\ S_6^5,\ S_6\},\\
+\mathbf{G}-\mathbf{H}=D_{3d}-C_{3i} &= \{C_{2[1\bar10]},\ C_{2[120]},\ C_{2[210]},\ M_{[1\bar10]},\ M_{[120]},\ M_{[210]}\}.
+\end{aligned}
+\]
+三个镜面$[1\bar10],[120],[210]$各对应一个节面，且由$C_3$旋转联系；此外，$[C_2\|C_{2[1\bar10]}]$等操作与$P$的组合还保护一个垂直于$c$轴的节面，共计四个节面。
+
+\subsection*{$6'/m'$群}
+由$\mathbf{G}=C_{6h}$和$\mathbf{H}=C_{3i}$构造：
+\[
+\mathbf{R}_s^{\mathrm{III}}(6'/m') = [E\|C_{3i}] + [C_2\|C_{6h}-C_{3i}].
+\]
+其中，
+\[
+\mathbf{H}=C_{3i} = \{E,\ P,\ C_{3z},\ C_{3z}^2,\ S_6^5,\ S_6\},\quad
+\mathbf{G}-\mathbf{H}=C_{6h}-C_{3i} = \{C_{2z},\ C_{6z},\ C_{6z}^5,\ M_z,\ S_3^5,\ S_3\}.
+\]
+$M_z$操作保护$k_z=0$节面；$C_{6z}$等操作与$C_3$对称性共同要求存在三个与$k_z=0$斜交的等效节面，总计等效四个节面。
+
+\subsection*{$6'/m'mm'$群}
+由$\mathbf{G}=D_{6h}$和$\mathbf{H}=D_{3d}$得到：
+\[
+\mathbf{R}_s^{\mathrm{III}}(6'/m'mm') = [E\|D_{3d}] + [C_2\|D_{6h}-D_{3d}].
+\]
+其中，
+\[
+\begin{aligned}
+\mathbf{H}=D_{3d} &= \left\{
+\begin{aligned}
+&E,\ C_{3z},\ C_{3z}^2,\ C_{2[1\bar10]},\ C_{2[120]},\ C_{2[210]},\\
+&P,\ S_6,\ S_6^5,\ M_{[1\bar10]},\ M_{[120]},\ M_{[210]}
+\end{aligned}
+\right\},\\
+\mathbf{G}-\mathbf{H}=D_{6h}-D_{3d} &= \left\{
+\begin{aligned}
+&C_{2z},\ C_{6z},\ C_{6z}^5,\ C_{2[110]},\ C_{2[100]},\ C_{2[010]},\\
+&M_z,\ S_3,\ S_3^5,\ M_{[110]},\ M_{[100]},\ M_{[010]}
+\end{aligned}
+\right\}.
+\end{aligned}
+\]
+四个节面对应于四个镜面方向$[1\bar10],[120],[210],[001]$，满足$g$波特征。
+
+\section{$i$波交错磁体}\label{sec:i-wave}
+
+$i$波交错磁体具有六个自旋简并节面，包括自旋群$6/mm'm'$和$m\bar{3}m'$。
+
+\subsection*{$6/mm'm'$群}
+由$\mathbf{G}=D_{6h}$和$\mathbf{H}=C_{6h}$构造：
+\[
+\mathbf{R}_s^{\mathrm{III}}(6/mm'm') = [E\|C_{6h}] + [C_2\|D_{6h}-C_{6h}].
+\]
+其中，
+\[
+\begin{aligned}
+\mathbf{H}=C_{6h} &= \{E,\ C_{6z},\ C_{3z},\ C_{2z},\ C_{3z}^2,\ C_{6z}^5,\ P,\ S_3,\ S_6,\ M_z,\ S_6^5,\ S_3^5\},\\
+\mathbf{G}-\mathbf{H}=D_{6h}-C_{6h} &= \left\{
+\begin{aligned}
+&C_{2[110]},\ C_{2[100]},\ C_{2[010]},\ C_{2[1\bar10]},\ C_{2[120]},\ C_{2[210]},\\
+&M_{[110]},\ M_{[100]},\ M_{[010]},\ M_{[1\bar10]},\ M_{[120]},\ M_{[210]}
+\end{aligned}
+\right\}.
+\end{aligned}
+\]
+六个节面由六个镜面方向给出，全部节线均位于对应的节面内。
+
+\subsection*{$m\bar{3}m'$群}
+由$\mathbf{G}=O_h$和$\mathbf{H}=T_h$得到：
+\[
+\mathbf{R}_s^{\mathrm{III}}(m\bar{3}m') = [E\|T_h] + [C_2\|O_h-T_h].
+\]
+其中，
+\[
+\begin{aligned}
+\mathbf{H}=T_h &= \left\{
+\begin{aligned}
+&E,\ C_{2x},\ C_{2y},\ C_{2z},\\
+&C_{3[111]},\ C_{3[111]}^2,\ C_{3[\bar111]},\ C_{3[\bar111]}^2,\ C_{3[1\bar11]},\ C_{3[1\bar11]}^2,\ C_{3[11\bar1]},\ C_{3[11\bar1]}^2,\\
+&P,\ M_x,\ M_y,\ M_z,\\
+&S_6^{[111]},\ S_6^{5[111]},\ S_6^{[\bar111]},\ S_6^{5[\bar111]},\ S_6^{[1\bar11]},\ S_6^{5[1\bar11]},\ S_6^{[11\bar1]},\ S_6^{5[11\bar1]}
+\end{aligned}
+\right\},\\
+\mathbf{G}-\mathbf{H}=O_h-T_h &= \left\{
+\begin{aligned}
+&C_{2[110]},\ C_{2[1\bar10]},\ C_{2[011]},\ C_{2[01\bar1]},\ C_{2[101]},\ C_{2[10\bar1]},\\
+&C_{4x},\ C_{4x}^3,\ C_{4y},\ C_{4y}^3,\ C_{4z},\ C_{4z}^3,\\
+&M_{[110]},\ M_{[1\bar10]},\ M_{[011]},\ M_{[01\bar1]},\ M_{[101]},\ M_{[10\bar1]},\\
+&S_4^x,\ S_4^{3x},\ S_4^y,\ S_4^{3y},\ S_4^z,\ S_4^{3z}
+\end{aligned}
+\right\}.
+\end{aligned}
+\]
+该群是立方对称下唯一的交错磁相自旋群。六个节面对应于六个$\{110\}$型镜面，九条节线沿$[100]$、$[010]$、$[001]$及六个$[110]$方向。
+
+\section{对称性保护的能带特征}\label{sec:band-features}
+
+上述十种自旋群共同赋予了交错磁体若干标志性的非相对论能带特征，这些特征直接源于自旋空间群的对称性约束。
+
+\begin{enumerate}
+\item \textbf{自旋是好量子数。} 共线磁相的$\mathrm{SO}(2)$自旋旋转对称性保证所有电子态具有统一的、与动量无关的自旋量子化轴，因此自旋向上和向下通道可以独立描述\cite{Smejkal2022PRX}。
+
+\item \label{item:P_sym} \textbf{动量空间等效反演对称性。} 由$[\bar{C}_2\|\mathcal{T}]$对称性（$\bar{C}_2$为绕垂直轴的$180^\circ$自旋旋转与自旋空间反演的复合）给出
+\begin{equation}
+\varepsilon(s,\mathbf{k}) = \varepsilon(s,-\mathbf{k}),
+\end{equation}
+无论晶体本身是否具有实空间反演中心。这一等效反演对称性是必须使用Laue群（而非普通点群）描述能带对称性的根本原因\cite{Smejkal2022PRX}。
+
+\item \textbf{时间反演破缺与交替自旋劈裂。} 将$[C_2\|A]$与$[\bar{C}_2\|\mathcal{T}]$相乘即得$[\bar{E}\|\mathcal{T}A]$，表明$\mathbf{R}_s^{\mathrm{III}}$中不包含时间反演操作。对称性$[C_2\|A]$给出
+\begin{equation}
+\varepsilon^{\uparrow}(\mathbf{k}) = \varepsilon^{\downarrow}(A\mathbf{k}),
+\end{equation}
+这意味着相反自旋的等能面通过动量空间旋转$A$相互映射，态密度严格相等、净磁化为零，但能带可发生动量依赖的自旋劈裂。这种劈裂无需自旋-轨道耦合即可达到电子伏特量级，是交错磁体区别于常规反铁磁体的关键光谱学特征\cite{Smejkal2022PRX,jungwirth_symmetry_2026}。
+
+\item \textbf{自旋简并节面。} 当$A\mathbf{k}=\mathbf{k}$（模倒格矢）时，$\varepsilon^{\uparrow}(\mathbf{k})=\varepsilon^{\downarrow}(\mathbf{k})$，形成受对称性保护的自旋简并节面。$\Gamma$点处交会的节面数量定义了交错磁体的“波”指数：2对应$d$波，4对应$g$波，6对应$i$波。这一分类与上述十种自旋Laue群严格对应，并可直接通过角分辨光电子能谱观测\cite{jungwirth_symmetry_2026}。
+\end{enumerate}
+
+\section{球谐函数及其节面分析}\label{sec:spherical-harmonics}
+
+$d, g, i$等命名源于原子轨道的球谐函数对称性，因为交错磁体的动量空间自旋劈裂$\delta E(\mathbf{k}) = E_{\uparrow}(\mathbf{k}) - E_{\downarrow}(\mathbf{k})$的角分布与实球谐函数的节面结构具有完全相同的节点数。这一类比揭示了对称性分类的深刻数学结构\cite{Smejkal2022PRX}。
+
+球谐函数$Y_{lm}(\theta,\varphi)$是拉普拉斯方程在球坐标下的角度部分解，
+\begin{equation}
+Y_{lm}(\theta,\varphi) = N_{lm} P_l^{|m|}(\cos\theta) \, e^{im\varphi},
+\end{equation}
+其中$P_l^{|m|}$为连带勒让德函数，$N_{lm}$为归一化常数。常用实形式为
+\[
+\begin{aligned}
+Y_{lm}^{\text{Real}} &= \frac{1}{\sqrt{2}} \left[ Y_{l,-m} + (-1)^m Y_{l,m} \right] \quad (m>0), \\
+Y_{l,-m}^{\text{Real}} &= \frac{1}{i\sqrt{2}} \left[ Y_{l,-m} - (-1)^m Y_{l,m} \right] \quad (m>0).
+\end{aligned}
+\]
+其实部与虚部分别包含$\cos(m\varphi)$和$\sin(m\varphi)$，与实原子轨道一一对应。
+
+球谐函数的\textbf{节面}由两类曲面构成：
+\begin{itemize}
+    \item \textbf{锥面}：$\theta = \text{常数}$，来自$P_l^{|m|}(\cos\theta)=0$的$l-|m|$个根。
+    \item \textbf{平面}：$\varphi = \text{常数}$，来自$\cos(m\varphi)=0$或$\sin(m\varphi)=0$。虽有$2|m|$个零点，但反向成对代表同一平面，故实际有$|m|$个不同平面。
+\end{itemize}
+因此，任意$m$值下总节面数恒为
+\begin{equation}
+(l-|m|) + |m| = l,
+\end{equation}
+恰好等于交错磁体$d$波($l=2$)、$g$波($l=4$)、$i$波($l=6$)的节面数目。奇数$l$（例如$f$波$l=3$）因时间反演破缺与等效反演对称性的共同约束而不出现，这自然地解释了为何交错磁相的分类跳过了$f$波而直接进入$g$波。

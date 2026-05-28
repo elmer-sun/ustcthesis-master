@@ -1,0 +1,148 @@
+% !TeX root = ../main.tex
+
+\chapter{时间反演操作、磁群与诺依曼原理}
+\label{T,MG}
+\section{时间反演操作}
+
+\subsection{经典物理图像}
+在经典力学中，时间反演变换 $\Theta$ 定义为 $t \to -t$。牛顿方程形式不变，但速度反向：
+\[
+\mathbf{x} \to \mathbf{x},\quad \mathbf{p} \to -\mathbf{p},\quad \mathbf{L}=\mathbf{x}\times\mathbf{p} \to -\mathbf{L}.
+\]
+磁场由运动电荷产生，电流反向导致 $\mathbf{B} \to -\mathbf{B}$。  
+我们希望在量子力学中找到一个算符（仍记为 $\Theta$）实现以上变换。
+
+\subsection{反幺正性的必然性}
+量子力学中正则对易关系 $[x_i,p_j]=i\hbar\delta_{ij}$ 必须在变换下保持。
+若 $\Theta$ 是幺正算符，则
+\[
+\Theta[x_i,p_j]\Theta^{-1} = \Theta(i\hbar\delta_{ij})\Theta^{-1}=i\hbar\delta_{ij},
+\]
+但直接按物理量变换会得到
+\[
+[x_i,p_j] \to [\Theta x_i\Theta^{-1},\Theta p_j\Theta^{-1}] = [x_i,-p_j] = -i\hbar\delta_{ij},
+\]
+两者矛盾。除非算符将虚数单位 $i$ 变为 $-i$，即要求 $\Theta$ 是\textbf{反幺正}算符：
+\[
+\Theta i \Theta^{-1} = -i.
+\]
+反幺正算符满足反线性：
+\[
+\Theta(\alpha\ket{\psi}+\beta\ket{\phi}) = \alpha^* \Theta\ket{\psi} + \beta^* \Theta\ket{\phi},
+\]
+且保持内积模长但取复共轭：$\langle \Theta\psi|\Theta\phi\rangle = \langle\phi|\psi\rangle$.
+
+\subsection{算符结构与无自旋粒子}
+任何反幺正算符都可写成 $\Theta = UK$，其中 $U$ 是幺正矩阵，$K$ 是复共轭操作（依赖表象）。
+设无自旋粒子，取坐标表象，波函数 $\psi(\mathbf{x})$。坐标算符 $\mathbf{x}$ 是乘法算子，动量 $\mathbf{p} = -i\hbar\nabla$。
+令 $\Theta_0 = K$（坐标表象即取复共轭），则
+\[
+\mathbf{x}\psi \xrightarrow{K} \mathbf{x}\psi^*,\quad \mathbf{p}\psi = -i\hbar\nabla\psi \xrightarrow{K} +i\hbar\nabla\psi^* = -\mathbf{p}\psi^*,
+\]
+满足 $\Theta\mathbf{x}\Theta^{-1}=\mathbf{x},\ \Theta\mathbf{p}\Theta^{-1}=-\mathbf{p}$，且 $\Theta_0^2=I$。所以无自旋粒子的时间反演就是复共轭。
+
+\subsection{有自旋粒子与标准形式}
+自旋 $\mathbf{S}$ 是角动量，时间反演下必须反向：$\Theta \mathbf{S}\Theta^{-1} = -\mathbf{S}$。  
+用 $\Theta = UK$，且因 $K S_i K^{-1} = S_i^*$（在 $S_z$ 对角表象中 $S_x,S_z$ 为实，$S_y$ 纯虚，故 $S_y^*=-S_y$），要求
+\[
+U S_x^* U^\dagger = -S_x,\quad U S_y^* U^\dagger = -S_y,\quad U S_z^* U^\dagger = -S_z.
+\]
+这等价于寻找一个幺正矩阵 $U$ 实现绕 $y$ 轴旋转 $180^\circ$，因为该旋转正好把 $S_x,S_z$ 反向而保持 $S_y$。因此
+\[
+{\Theta = e^{-i\pi S_y/\hbar}\,K}.
+\]
+此式对任意自旋均成立，是量子力学时间反演的标准形式。
+
+\subsection{自旋~$\frac{1}{2}$ 的显式表示与 $\Theta^2$}
+对自旋 $1/2$，$\mathbf{S}=\frac{\hbar}{2}\boldsymbol{\sigma}$，有
+\[
+e^{-i\pi S_y/\hbar} = e^{-i\frac{\pi}{2}\sigma_y} = \cos\frac{\pi}{2}\,I - i\sigma_y\sin\frac{\pi}{2} = -i\sigma_y.
+\]
+因此 $\Theta = -i\sigma_y K$（常记作 $\Theta = i\sigma_y K$，相差一个整体相位）。
+计算 $\Theta^2$：
+\begin{align*}
+\Theta^2 &= (e^{-i\pi S_y/\hbar}K)(e^{-i\pi S_y/\hbar}K) = e^{-i\pi S_y/\hbar} (K e^{-i\pi S_y/\hbar} K) \\
+&= e^{-i\pi S_y/\hbar} e^{+i\pi S_y^*/\hbar}.
+\end{align*}
+在 $S_z$ 基下 $S_y^* = -S_y$，故 $e^{i\pi S_y^*/\hbar} = e^{-i\pi S_y/\hbar}$，于是
+\[
+\Theta^2 = \bigl(e^{-i\pi S_y/\hbar}\bigr)^2 = e^{-i2\pi S_y/\hbar}.
+\]
+对于自旋 $j$，指数 $e^{-i2\pi J_y/\hbar}$ 的本征值为 $(-1)^{2j}$，因此
+\[
+{\Theta^2 = \begin{cases}
++1, & \text{整数自旋},\\
+-1, & \text{半奇数自旋}.
+\end{cases}}
+\]
+特别地，对电子（自旋 $1/2$），$\Theta^2 = -I$。
+
+\subsection{Kramers 定理}
+设系统哈密顿具有时间反演对称性：$\Theta H \Theta^{-1} = H$。
+若 $\Theta^2 = -1$（半奇数自旋体系），则每个能量本征值至少二重简并。
+\begin{proof}
+令 $\ket{\psi}$ 为 $H$ 的归一本征态，能值为 $E$。
+由 $[H,\Theta]=0$，$\Theta\ket{\psi}$ 也是本征态且能量同为 $E$。
+假设二者线性相关，即 $\Theta\ket{\psi}=c\ket{\psi}$，则
+\[
+\Theta^2\ket{\psi} = \Theta(c\ket{\psi}) = c^*\Theta\ket{\psi} = |c|^2\ket{\psi}.
+\]
+但依假设 $\Theta^2\ket{\psi} = -\ket{\psi}$，故 $|c|^2 = -1$，不可能。
+因此 $\ket{\psi}$ 与 $\Theta\ket{\psi}$ 互相正交且简并，能级简并度至少为 2。
+\end{proof}
+
+当存在外磁场或磁有序使时间反演对称性破缺时，Kramers 简并会被解除。这正是磁群分类的物理基础。
+
+\section{磁群（磁性空间群与磁性点群）}
+
+\subsection{动机与定义}
+普通空间群描述原子位置周期性，不包含磁矩（自旋）方向信息。在磁性晶体中，磁矩是轴矢量，时间反演下反向。为描述磁有序结构的整体对称性，
+需将时间反演操作 $\theta$与空间操作组合，所得群称为\textbf{磁群}（Shubnikov 群）。
+
+设晶体在顺磁相的空间群（或点群）为 $G$，时间反演操作用 $\theta$ 表示。磁群 $M$ 是由 $G$ 和 $\theta$ 生成的群。根据 $\theta$ 在群中的位置，磁群分为三类。
+
+\subsection{三类磁群}
+
+\paragraph{I 类：无色群（寻常空间群）}
+完全不含 $\theta$ 及其组合，即 $M = G$。这类群描述非磁性晶体或磁矩无序排列的结构。共 230 个磁空间群（即常规空间群），32 个磁点群。
+
+\paragraph{II 类：灰色群}
+$\theta$ 本身是对称元素，$M = G \cup \theta G = G \times \{1,\theta\}$。
+此时每个空间操作都伴随一个时间反演副本。物理上对应于\textbf{顺磁体}：瞬时磁矩存在，但体系在时间反演下统计不变。
+灰色空间群共有 230 个（与 I 类一一对应），灰色点群 32 个。
+
+\paragraph{III 类：黑白群}
+$\theta$ 本身不在群中，但存在元素是空间操作与 $\theta$ 的乘积。
+代数结构：$M = H \cup \theta(G-H)$，其中 $H$ 是 $G$ 的指数为 2 的子群（即 $H$ 含 $G$ 的一半元素）。群中一半是不含 $\theta$ 的“白”操作，一半是带 $\theta$ 的“黑”操作（常加撇号记作 $\{R|\mathbf{t}\}'$）。此类群描述\textbf{反铁磁、亚铁磁}等有序磁结构。III 类磁空间群共有 1191 个，III 类磁点群 58 个。
+
+综上，磁空间群总数为 $230 + 230 + 1191 = 1651$，磁点群为 $32 + 32 + 58 = 122$。
+
+\subsection{操作记法与示例}
+普通空间操作记作 $\{R|\mathbf{t}\}$（转动/反射加平移）。含时间反演的操作记作
+\[
+\{R|\mathbf{t}\}' \equiv \theta \{R|\mathbf{t}\}.
+\]
+例如，简单立方晶格中反铁磁序（相邻离子自旋反向）可通过一个平移加 $\theta$ 的连接操作实现对称性。具体磁结构由中子衍射确定，并根据不变操作定出所属磁空间群。
+
+\section{诺依曼原理}
+
+\subsection{经典表述}
+诺依曼原理是晶体物理的基石：
+\begin{quote}
+\textbf{晶体的任何宏观物理性质的对称性必须包含晶体的点群对称性。}
+\end{quote}
+换言之，若晶体点群为 $G_{\text{point}}$，物理性质用张量 $\mathbf{T}$ 描述，则对任意点群操作 $R \in G_{\text{point}}$，有
+\[
+\mathbf{T} = R \mathbf{T} R^{-1}\quad (\text{或按张量指标变换规则}).
+\]
+性质张量的对称性不低于晶体点群的对称性，但可以更高（如各向同性）。该原理限定了宏观张量非零独立分量的最大限度。
+
+\subsection{应用实例}
+考虑二阶电导率张量 $\sigma_{ij}$。在立方点群下，要求 $\sigma_{ij}$ 在各对称操作下不变，可得 $\sigma_{ij} = \sigma_0 \delta_{ij}$，即各向同性。若为六角晶系，则独立分量有 $\sigma_{\parallel}$ 与 $\sigma_{\perp}$ 两个。因此通过点群对称性可导出张量形式，无需具体微观计算。
+
+\subsection{对磁性晶体的推广}
+当晶体具有磁序时，宏观性质（如磁化率、磁致伸缩系数）必须与\textbf{磁点群}相容。
+此时 $R$ 可以是普通空间操作，也可以是含 $\theta$ 的磁性操作。诺依曼原理修改为：
+物理性质张量在磁点群的所有操作（包括带撇号的元素）下不变。
+例如，反铁磁序的出现会降低晶格对称性，允许某些非对角磁化率分量出现，但仍受磁点群约束。
+

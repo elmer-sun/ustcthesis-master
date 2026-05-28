@@ -1,0 +1,124 @@
+% !TeX root = ../main.tex
+\chapter{实验验证：CrSb的输运性质测量}
+
+考虑到篇幅限制及本文以理论分析为主，本节仅简要介绍与合作实验组共同完成的 CrSb 非线性输运测量的核心结果，详细分析讨论请参见~\cite{sankar_broadband_2025}。
+
+\section{旋转角度依赖测量排除本征一阶反常霍尔效应}
+
+对称性分析（见第~\ref{sec:CrSb_application} 节）预言理想 CrSb 晶体中一阶反常霍尔电导必须为零，横向一阶信号的旋转角度依赖应为纯 $\sin 2\phi$ 函数，无常数背景。实验上，在圆形 Hall bar 器件上测量了零场横向电压 $V_{zx}^{1\omega}$ 随电场方向 $\phi$ 的变化。数据完美符合 $A\sin 2\phi$ 形式，常数偏移 $B/A\approx 0$，在实验精度内确认 $\sigma_H=0$。该结果与基于磁点群 $6'/m'mm'$ 的严格对称性分析完全一致，排除了低阶伪信号对后续三阶非线性霍尔效应测量的干扰。详细的旋转角度依赖理论推导（一阶与三阶）见第~\ref{sec:CrSb_application} 节。
+
+\section{三阶横向非线性响应的各向异性}
+
+对称性分析预言，本征的三阶非线性霍尔效应（源于BCQ和AIC）在CrSb中表现出强烈的各向异性：只有当驱动电流沿 $x$ 方向、横向电压沿 $z$ 方向测量时，才存在非零的三阶横向电导分量 $\sigma_{zxxx}^{(3)}$；电流沿 $y$ 或 $z$ 方向时横向信号应为零（表~\ref{tab:theory_prediction}）。
+实验对比了 $XZ$、$YZ$、$ZX$ 三种器件的横向三阶电压 $V_{z\alpha\alpha}^{3\omega}$ 随纵向偏置电流立方 $I^3$ 的变化：仅 $XZ$ 器件呈现显著的、与 $I^3$ 成线性关系的三阶横向信号；$YZ$ 和 $ZX$ 器件的信号幅度远小于前者，验证了对称性对各向异性的预言。
+
+为进一步验证三阶非线性霍尔效应的张量结构，在 $XZ$ 取向的 CrSb 薄片上加工了圆形 Hall bar 器件，连续改变电场方向 $\phi_E$，系统测量一阶和三阶横向电压的角度依赖。下面给出联合拟合结果，完整理论推导见第~\ref{sec:CrSb_application} 节。
+
+\subsection{一阶与三阶信号的联合拟合}
+
+实验中对一阶和三阶横向电压进行联合拟合，采用如下函数形式（其理论来源为第~\ref{sec:CrSb_application} 节的式~\eqref{eq:sigma12_rot} 与式~\eqref{eq:sigma_angle_expand}）：
+\begin{align}
+  V_{zx}^{1\omega}(\phi_E') &= V_{\mathrm{AHE}}^{1\omega} + V_{\mathrm{ani}}^{1\omega} \sin(2\phi_E'), \label{eq:fit1}\\
+  V_{zxxx}^{3\omega}(\phi_E') &= V_A + V_B\cos(2\phi_E') + V_C\sin(2\phi_E') + V_D\sin(4\phi_E'), \label{eq:fit3}
+\end{align}
+其中 $\phi_E' = \phi_E - \phi_0$ 为相对晶体主轴的电场角度，$\phi_0$ 为实验起始角相对于晶体主轴的偏移。
+
+拟合结果如图~\ref{fig:angle_fit} 和表~\ref{tab:angle_fit} 所示。
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{angle_fit.png}
+\caption{一阶（$1\omega$）与三阶（$3\omega$）Hall电压的联合角度拟合。红蓝虚线分别标示各自相对于拟合偏移的零交叉点。三阶谐波相对于一阶的微小相位偏移来源于BCQ与Drude/QM贡献在三阶响应中的共存。}
+\label{fig:angle_fit}
+\end{figure}
+
+\begin{table}[htbp]
+\centering
+\caption{一阶与三阶角度依赖信号的联合拟合参数}
+\label{tab:angle_fit}
+\begin{tabular}{c|c|c}
+\toprule
+参数 & 拟合值 & 物理含义 \\
+\midrule
+$V_{\mathrm{AHE}}^{1\omega}$ & $\approx 0$ & 一阶反常霍尔电压 \\
+$V_{\mathrm{ani}}^{1\omega}$ & $118.72 \pm 9.94\;\mu\mathrm{V}$ & 一阶各向异性幅值 \\
+$\phi_0$ & $0.0974 \pm 0.0096\,\pi$（$\approx 17.5^\circ$） & 测量坐标与晶体主轴的偏移角 \\
+\midrule
+$V_A = V_B$ & $-18.13 \pm 6.38\;\mathrm{nV}$ & BCQ贡献（常数项与$\cos 2\phi_E$项） \\
+$V_C$ & $-138.73 \pm 10.00\;\mathrm{nV}$ & Drude/QM贡献主导的$\sin 2\phi_E$项 \\
+$V_D$ & $8.79 \pm 9.94\;\mathrm{nV}$ & 四阶张量特征的高次谐波$\sin 4\phi_E$项 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+拟合结果表明：
+\begin{enumerate}
+  \item $V_{\mathrm{AHE}}^{1\omega} \approx 0$，再次确认一阶本征反常霍尔效应不存在，与补偿反铁磁结构一致。
+  \item $V_{\mathrm{ani}}^{1\omega} = 118.72\;\mu\mathrm{V}$，反映 $XZ$ 平面内 $\sigma_{xx}^{(1)}$ 与 $\sigma_{zz}^{(1)}$ 的显著各向异性。
+  \item $V_A = V_B = -18.13\;\mathrm{nV}$，实验上验证了 $\mathcal{A} = \mathcal{B}$ 的理论约束（第~\ref{sec:CrSb_application} 节式~\eqref{eq:AB_eq}），直接证实 BCQ 对常数项和 $\cos 2\phi_E$ 项的唯一贡献。
+  \item $V_C = -138.73\;\mathrm{nV}$ 在三阶信号中占主导，与 Drude 四极矩和 QMQ 的各向异性贡献一致。
+  \item $|V_B/V_C| \approx 0.13$ 的非零比值给出内禀角位移 $\alpha = \arctan(V_B/V_C)$，可作为区分 BCQ 与 Drude/QM 贡献的实验探针。
+\end{enumerate}
+
+综上，圆形 Hall bar 角度依赖测量从张量变换层面全面验证了理论预言（第~\ref{sec:CrSb_application} 节式~\eqref{eq:sigma_angle_expand}）：BCQ 贡献独特的 $\mathcal{A}=\mathcal{B}$ 约束、Drude/QM 的各向异性 $\sin 2\phi_E$ 项、以及四阶张量特有的 $\sin 4\phi_E$ 高次谐波均得到实验定量验证。
+
+\section{多波混频与宽带特性}
+
+前文已从对称性分析和标度律两方面证实，CrSb中的三阶非线性霍尔响应来自贝里曲率四极矩（BCQ）的本征贡献。该机制具有极高的响应速度：由载流子弛豫时间 \(\tau\approx 1\,\mathrm{ps}\) 决定，其内禀带宽可达 THz 量级。换言之，在实验所及的频率范围内（\(\omega\tau \ll 1\)），系统对外加电场的响应近似无延迟，呈现为瞬时多项式特征。这一性质是实现宽带多波混频的物理基础。
+
+\subsection{混频响应与非线性能纳}
+
+当两个频率不同的交流电流同时注入 \(XZ\) 器件时，
+\[
+  I_x(t) = I_0(\cos\omega_1 t + \cos\omega_2 t),
+\]
+三阶电导率 \(\sigma^{(3)}_{zxxx}\) 将产生丰富的频率分量。由于 \(\tau\) 极小，响应无显著延迟，三阶电流在时域中可近似写为电场的瞬时立方项
+\[
+  j_z^{(3)}(t) \approx \sigma^{(3)}_{zxxx} E_x^3(t),
+\]
+其傅里叶分解直接由三角恒等式
+\begin{align}
+(\cos\omega_1 t + \cos\omega_2 t)^3
+&= \frac{9}{4}\cos\omega_1 t + \frac{9}{4}\cos\omega_2 t
+   + \frac{1}{4}\cos 3\omega_1 t + \frac{1}{4}\cos 3\omega_2 t \notag\\
+&\quad + \frac{3}{4}\cos(2\omega_1+\omega_2)t
+    + \frac{3}{4}\cos(2\omega_1-\omega_2)t \notag\\
+&\quad + \frac{3}{4}\cos(2\omega_2+\omega_1)t
+    + \frac{3}{4}\cos(2\omega_2-\omega_1)t .
+\end{align}
+给出各频率分量的振幅比。半经典玻尔兹曼方程也退化为同一结果
+详细的频域推导见附录~\ref{MWM}。
+
+
+
+\subsection{电感修正}
+
+实际测量回路中的互感耦合会引入与频率成正比的感应电压，总电压振幅可表示为
+\[
+  |\tilde V(\omega)| \propto |\tilde\jmath(\omega)|
+  \sqrt{1 + (\omega L_{\mathrm{eff}}/R)^2}.
+\]
+等效电感 \(L_{\mathrm{eff}}\) 的效应通过两个唯象参数 \(r_1, r_2\) 刻画：\(r_1\) 修正基频 \(\omega_1,\omega_2\) 的电感拾取，\(r_2\) 修正所有高频混频分量的电感拾取。二者的区别来源于基频信号同时流经器件外部的导线，而混频分量仅存在于 CrSb 器件本身。
+
+\subsection{实验结果}
+
+图~\ref{fig:mixing} 展示了双频驱动下的输出频谱。实验中取 \(\omega_1/2\pi = 125\,\mathrm{Hz}\)，\(\omega_2/2\pi = 32\,\mathrm{Hz}\)，测得约 20 条谱线，完整包含了基频、三次谐波、和频、差频及四波混频分量。
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.95\textwidth]{mixing_symmetric_labeled.png}
+  \caption{多波混频谱。绿线为实验频谱，绿点为峰振幅；蓝点为无电感修正的理论值；红点为经 \(r_1,r_2\) 电感修正后的理论值。}
+  \label{fig:mixing}
+\end{figure}
+
+单频驱动下的基波与三次谐波响应亦验证了 \(\tilde V(3\omega)/\tilde V(\omega)\) 约满足 \(1:3\) 的理论预期，参考公式\eqref{eq:3to1}（图~\ref{fig:single}），进一步确认了三阶响应无延迟的瞬时特征。
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.95\textwidth]{single_freq_symmetric.png}
+  \caption{单频响应。上：125\,Hz；下：32\,Hz。彩色曲线为实验数据，实心圆为基波与三次谐波峰，蓝色方块为拟合 \(r_1,r_2\) 后的理论值。}
+  \label{fig:single}
+\end{figure}
+
+综上，CrSb 中的 BCQ 四极矩在室温下展现出宽带多波混频能力。弛豫时间 \(\tau\approx 1\,\mathrm{ps}\) 赋予其 \(>100\,\mathrm{kHz}\) 的平坦带宽，使三阶响应在实验频段内保持理想的无延迟特征。
+展示了交变磁体在射频信号转换、THz 产生等高频电子学中的潜在应用前景。

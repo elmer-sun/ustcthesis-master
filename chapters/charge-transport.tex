@@ -1,0 +1,521 @@
+% !TeX root = ../main.tex
+
+\chapter{从反常霍尔效应到非线性反常霍尔效应}
+
+\section{线性反常霍尔电导率}
+\label{sec:AHE}
+
+反常霍尔效应（AHE）指铁磁材料中无外加磁场时出现的横向霍尔电压。电流$\mathbf{J}$与电场$\mathbf{E}$由电导率张量联系：
+\begin{equation}
+J_i = \sigma_{ij} E_j,
+\end{equation}
+其中霍尔响应来自反对称部分$\sigma_{ij}^A = \frac{1}{2}(\sigma_{ij}-\sigma_{ji})$，三维下可用轴矢量表示为$\sigma_{ij}^A = \epsilon_{ijk}\sigma_k^H$。
+
+内禀贡献源于动量空间的贝里曲率。在自旋-轨道耦合和时间反演对称性破缺的体系中，约定$e>0$为元电荷，电子电荷为$-e$，运动方程为$\hbar\dot{\mathbf{k}}=-e\mathbf{E}$。布洛赫电子的反常速度为
+\begin{equation}
+\mathbf{v}^{\text{an}} = \frac{e}{\hbar}\mathbf{E}\times\bm{\Omega}_n(\mathbf{k}),
+\end{equation}
+由此直接给出内禀反常霍尔电导率（完整半经典推导见附录~\ref{nonlinear-hall}）：
+\begin{equation}
+\sigma_{ij} = -\frac{e^2}{\hbar}\epsilon_{ijk} M_k, \qquad
+M_k = \sum_n \int \frac{d^3k}{(2\pi)^3} f_n^{(0)}(\mathbf{k})\,\Omega_{n,k}(\mathbf{k}).
+\label{eq:AHE_sigma}
+\end{equation}
+贝里曲率的定义与量子几何关系详见\autoref{berry}。
+
+\section{线性反常霍尔效应的对称性分析}
+\label{sec:AM_AHE_symmetry}
+
+共线/共面磁体中，线性AHE的存在性由单一判据决定：计入SOC后体系是否属于自旋-轨道磁体（SOM）。该判据与是否交变磁体无关。
+
+\begin{itemize}
+    \item \textbf{无SOC极限（SSG）}：所有共线或共面磁体的SSG同时强制自旋磁化和轨道磁化为零，线性AHE被严格禁戒。
+    \item \textbf{计入SOC后（MSG）}：对称性降为磁空间群。若MSG不强制净磁化为零，则体系为SOM，线性AHE被允许且与轨道磁化同阶涌现；若MSG仍强制磁化为零，则为纯反铁磁体，线性禁止。
+    \item \textbf{与交变磁性的关系}：交错磁体的本质是非相对论自旋劈裂；而反常霍尔效应来自于引入SOC后的对称性降低。
+\end{itemize}
+\vspace{5mm}
+\textbf{小结：}
+\begin{center}
+\begin{tabular}{c c c}
+\toprule
+& 无SOC（SSG） & 有SOC（MSG） \\
+\midrule
+纯AFM & 禁止 & 禁止 \\
+SOM   & 禁止 & \textbf{AHE允许} \\
+\bottomrule
+\end{tabular}
+\end{center}
+\vspace{5mm}
+表~\ref{tab:3d} 和表~\ref{tab:2d} 列出了三维和二维磁点群中由贝里曲率多极子诱导的主导本征反常霍尔响应阶次。一阶（线性）AHE对应的磁点群恰好是SOM中MSG不强制磁化为零的铁磁类点群；禁戒一切本征霍尔响应的为包含$PT$对称或强制磁化为零的纯反铁磁类点群；其余磁点群允许高阶非线性霍尔效应。
+
+\begin{table}[H]
+\centering
+\caption{所有122个三维磁点群中由Berry曲率多极子诱导的主导本征反常霍尔响应}
+\label{tab:3d}
+\begin{tabular}{p{3.5cm} p{10cm}}
+\toprule
+\textbf{主导响应阶次} & \textbf{磁点群} \\
+\midrule
+无反常霍尔响应 & 
+$\bar{1}1'$, $\bar{1}'$, $2/m1'$, $2'/m$, $2/m'$, $mmm1'$, $m'mm$, $m'm'm'$, $4/m1'$, $4/m'$, $4'/m'$, $4/mmm1'$, $4/m'mm$, $4'/m'm'm$, $4/m'm'm'$, $\bar{3}1'$, $\bar{3}'$, $\bar{3}m1'$, $\bar{3}'m$, $\bar{3}'m'$, $6/m1'$, $6'/m$, $6/m'$, $6/mmm1'$, $6/m'mm$, $6'/mmm'$, $6/m'm'm'$, $m\bar{3}1'$, $m'\bar{3}'$, $m\bar{3}m1'$, $m'\bar{3}'m$, $m'\bar{3}'m'$ \\
+\midrule
+一阶（线性反常霍尔） & 
+$1$, $\bar{1}$, $2$, $2'$, $m$, $m'$, $2/m$, $2'/m'$, $2'2'2$, $m'm2'$, $m'm'2$, $m'm'm$, $4$, $\bar{4}$, $4/m$, $42'2'$, $4m'm'$, $\bar{4}2'm'$, $4/mm'm'$, $3$, $\bar{3}$, $32'$, $3m'$, $\bar{3}m'$, $6$, $\bar{6}$, $6/m$, $62'2'$, $6m'm'$, $\bar{6}m'2'$, $6/mm'm'$ \\
+\midrule
+二阶（非线性霍尔） & 
+$11'$, $21'$, $m1'$, $222$, $2221'$, $mm2$, $mm21'$, $41'$, $4'$, $\bar{4}1'$, $\bar{4}'$, $422$, $4221'$, $4'22'$, $4mm$, $4mm1'$, $4'm'm$, $\bar{4}2m$, $\bar{4}2m1'$, $\bar{4}2'm$, $\bar{4}2m'$, $31'$, $32$, $321'$, $3m$, $3m1'$, $61'$, $6'$, $622$, $6221'$, $6'22'$, $6mm$, $6mm1'$, $6'mm'$, $23$, $231'$, $432$, $4321'$, $4'32'$ \\
+\midrule
+三阶（非线性霍尔） & 
+$mmm$, $4'/m$, $4/mmm$, $4'/mmm'$, $\bar{3}m$, $\bar{6}'$, $6'/m'$, $\bar{6}m2$, $\bar{6}'m'2$, $\bar{6}'m2'$, $6/mmm$, $6'/m'mm'$, $m\bar{3}$, $\bar{4}'3m'$, $m\bar{3}m'$ \\
+\midrule
+四阶（非线性霍尔） & 
+$\bar{6}1'$, $\bar{6}m21'$, $\bar{4}3m$, $\bar{4}3m1'$ \\
+\midrule
+五阶（非线性霍尔） & 
+$m\bar{3}m$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{所有31个二维磁点群中由Berry曲率多极子诱导的主导本征反常霍尔响应}
+\label{tab:2d}
+\begin{tabular}{p{3.5cm} p{8cm}}
+\toprule
+\textbf{主导响应阶次} & \textbf{磁点群} \\
+\midrule
+无反常霍尔响应 & 
+$21'$, $2'$, $2mm1'$, $2'mm'$, $41'$, $4mm1'$, $61'$, $6'$, $6mm1'$, $6'm'm$ \\
+\midrule
+一阶（线性反常霍尔） & 
+$1$, $m'$, $2$, $2m'm'$, $4$, $4m'm'$, $3$, $3m'$, $6$, $6m'm'$ \\
+\midrule
+二阶（非线性霍尔） & 
+$11'$, $m$, $m1'$ \\
+\midrule
+三阶（非线性霍尔） & 
+$2mm$, $4'$, $4'm'm$ \\
+\midrule
+四阶（非线性霍尔） & 
+$3m$, $31'$, $3m1'$ \\
+\midrule
+五阶（非线性霍尔） & 
+$4mm$ \\
+\midrule
+七阶（非线性霍尔） & 
+$6mm$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\clearpage
+
+\section{非线性电导率的一般公式}
+\label{sec:nonlinear_formula}
+
+非线性霍尔效应自提出以来在理论和实验方面均取得了重要进展
+\cite{Sodemann2015,gao_field_2014,nandy_symmetry_2019,du_quantum_2021,du_nonlinear_2021,ma_observation_2019,kang_nonlinear_2019,wang_intrinsic_2021,ba_nonlinear_2023,min_colossal_2024,lai_third-order_2021,Zhang2023,gao_quantum_2023,yu_quantum_2025,liu_giant_2025,li_quantum_2024,Fang2024,chu_third-order_2025,chen_giant_2026,zhu_magnetic_2025}。
+当线性AHE被对称性禁戒时，高阶非线性霍尔效应成为主导。本节直接给出二阶与三阶电导率的核心公式，完整推导见附录~\ref{nonlinear-hall}。
+
+\subsection{符号约定}
+$a,b,c,d\in\{x,y,z\}$为坐标索引； $\partial_{k^a}\equiv \partial/\partial k_a$； $\epsilon_n$为能带色散； $f_n$为费米-狄拉克分布； $\Omega_n^{ab}$为贝里曲率； $G_n^{ab}$为量子度规； $\sum_n\int_{\mathbf{k}}$表示对占据能带求和并积分布里渊区。
+
+\subsection{二阶电导率}
+$j_c^{(2)} = \sigma^{ab;c}E_a E_b$，$\sigma^{ab;c}$对$(a,b)$对称。
+\begin{align}
+\sigma_{\text{Drude}}^{ab;c} &= -\frac{e^3\tau^2}{\hbar^3}\sum_n\int_{\mathbf{k}} f_n\,\partial_{k^a}\partial_{k^b}\partial_{k^c}\epsilon_n, \label{eq:sigma2_Drude}\\
+\sigma_{\text{BCD}}^{ab;c} &= \frac{e^3\tau}{\hbar^2}\sum_n\int_{\mathbf{k}} f_n\,
+\frac{1}{2}\bigl(\partial_{k^a}\Omega_n^{bc}+\partial_{k^b}\Omega_n^{ac}\bigr), \label{eq:sigma2_BCD}\\
+\sigma_{\text{QMD}}^{ab;c} &= \frac{e^3}{\hbar}\sum_n\int_{\mathbf{k}} f_n\,
+\Bigl(2\partial_{k^c}G_n^{ab}-\frac{1}{2}(\partial_{k^a}G_n^{bc}+\partial_{k^b}G_n^{ac})\Bigr). \label{eq:sigma2_QMD}
+\end{align}
+
+\subsection{三阶电导率}
+$j_d^{(3)} = \sigma^{abc;d}E_a E_b E_c$，$\sigma^{abc;d}$对$(a,b,c)$全对称。
+\begin{align}
+\sigma_{\text{Drude}}^{abc;d} &= \frac{e^4\tau^3}{\hbar^4}\sum_n\int_{\mathbf{k}} f_n\,\partial_{k^a}\partial_{k^b}\partial_{k^c}\partial_{k^d}\epsilon_n, \label{eq:sigma3_Drude}\\
+\sigma_{\text{BCQ}}^{abc;d} &= -\frac{e^4\tau^2}{\hbar^3}\sum_n\int_{\mathbf{k}} f_n\,
+\frac{1}{3}\bigl(\partial_{k^a}\partial_{k^b}\Omega_n^{cd} + \partial_{k^b}\partial_{k^c}\Omega_n^{ad} + \partial_{k^a}\partial_{k^c}\Omega_n^{bd}\bigr), \label{eq:sigma3_BCQ}\\
+\sigma_{\text{QMQ}}^{abc;d} &= \frac{e^4\tau}{\hbar^2}\sum_n\int_{\mathbf{k}} f_n\,
+\frac{1}{3}\Bigl[\,2\bigl(\partial_{k^a}\partial_{k^d}G_n^{bc}+\partial_{k^b}\partial_{k^d}G_n^{ac}+\partial_{k^c}\partial_{k^d}G_n^{ab}\bigr) \nonumber\\
+&\qquad -\bigl(\partial_{k^a}\partial_{k^c}G_n^{bd}+\partial_{k^b}\partial_{k^c}G_n^{ad}+\partial_{k^a}\partial_{k^b}G_n^{cd}\bigr)\Bigr], \label{eq:sigma3_QMQ}\\
+\sigma_{\text{AIC}}^{abc;d} &= \frac{e^4}{\hbar}\sum_n\int_{\mathbf{k}} f_n\,
+\frac{2}{3\epsilon_{n\bar{n}}}\bigl(G_n^{ab}\Omega_n^{cd}+G_n^{ac}\Omega_n^{bd}+G_n^{bc}\Omega_n^{ad}\bigr). \label{eq:sigma3_AIC}
+\end{align}
+
+\subsection{$\tau$ 标度与物理来源}
+\begin{table}[H]
+\centering
+\caption{非线性电导率各贡献项的$\tau$标度与物理来源}
+\label{tab:tau_scaling}
+\begin{tabular}{c|c|c|c}
+\toprule
+响应阶数 & 贡献项 & $\tau$依赖 & 物理来源 \\
+\midrule
+\multirow{3}{*}{二阶} & Drude & $\tau^2$ & 能带色散 \\
+                      & 贝里曲率偶极矩 & $\tau^1$ & 贝里曲率梯度 \\
+                      & 量子度规偶极矩 & $\tau^0$ & 量子度规梯度 \\
+\midrule
+\multirow{4}{*}{三阶} & Drude & $\tau^3$ & 能带色散 \\
+                      & 贝里曲率四极矩 & $\tau^2$ & 贝里曲率二阶梯度 \\
+                      & 量子度规四极矩 & $\tau^1$ & 量子度规二阶梯度 \\
+                      & 额外带间贡献 & $\tau^0$ & 度规-曲率乘积 \\
+\bottomrule
+\end{tabular}
+\end{table}
+\section{量子几何量在对称操作下的变换规则}
+
+本节用投影算符语言推导动量导数 \(\partial_a\)、带归一化量子度规 \(G^{ab}\)、
+贝里曲率张量 \(\Omega^{ab}\) 及其赝矢量对偶 \(\Omega^c\) 在真旋转、空间反演
+和时间反演下的变换规则。
+
+\subsection{投影算符与量子几何张量}
+
+设一组孤立的 \(N\) 条能带（例如费米能级以下的所有占据带），定义投影算符
+\begin{equation}
+  P(\mathbf{k}) = \sum_{n=1}^{N} \lvert u_{n\mathbf{k}}\rangle\langle u_{n\mathbf{k}}\rvert,
+\end{equation}
+满足 \(P^2 = P\)，\(P^\dagger = P\)。\textit{量子几何张量}定义为
+\begin{equation}
+  \mathcal{G}_{ab}(\mathbf{k}) = \operatorname{tr}\bigl[ P(\mathbf{k})\,
+  \partial_a P(\mathbf{k})\, \partial_b P(\mathbf{k}) \bigr],
+  \label{eq:Gdef}
+\end{equation}
+其中 \(\partial_a \equiv \partial/\partial k_a\)，迹 \(\operatorname{tr}\) 对能带指标求
+迹。其实部和反对称虚部分别给出\textit{量子度规}和\textit{贝里曲率张量}：
+\begin{equation}
+  \mathcal{G}_{ab} = g_{ab} - \frac{i}{2}\Omega_{ab},
+  \qquad
+  g_{ab} = \operatorname{Re}\mathcal{G}_{ab},\quad
+  \Omega_{ab} = -2\operatorname{Im}\mathcal{G}_{ab}.
+\end{equation}
+单带 \(n\) 的带归一化量子度规为
+\begin{equation}
+  G_n^{ab} = \sum_{m\neq n}
+  \frac{A_{nm}^a A_{mn}^b + A_{nm}^b A_{mn}^a}{2(\varepsilon_n-\varepsilon_m)},
+\end{equation}
+其物理变换性质与 \(g^{ab}\) 一致，本文直接用 \(\mathcal{G}_{ab}\) 的变换替代
+讨论，不再区分单带与多带。
+
+\subsection{对称操作的分类}
+
+晶体中的对称操作分为两类：
+\begin{itemize}
+  \item \textbf{幺正操作} \(g\)：如真旋转 \(R\)、空间反演 \(P\)。
+  \item \textbf{反幺正操作} \(gT\)：包含时间反演的组合，对波函数附加复共轭作用。
+\end{itemize}
+任何此二类操作均将动量映射为 \(\mathbf{k} \mapsto R_g\mathbf{k}\)，其中 \(R_g\)
+为该操作在动量空间的 \(D\times D\) 正交表示矩阵。投影算符的变换规则为
+\begin{align}
+  \text{幺正操作 } g &: \; P(R_g\mathbf{k}) = U_g P(\mathbf{k}) U_g^\dagger,
+    \label{eq:Pg}\\
+  \text{反幺正操作 } gT &: \; P(R_g\mathbf{k}) = U_g P^*(\mathbf{k}) U_g^\dagger
+    = U_g P^{\mathsf{T}}(\mathbf{k}) U_g^\dagger,
+    \label{eq:PgT}
+\end{align}
+其中 \(P^*\) 表示矩阵元的复共轭，对厄米算符等于转置。
+
+\subsection{动量导数 \(\partial_a\) 的变换}
+
+引入新坐标 \(\mathbf{k}' = R_g\mathbf{k}\)，由偏导数的链式法则
+\[
+  \partial'_a
+  = \frac{\partial}{\partial k'_a}
+  = \sum_{b} \frac{\partial k_b}{\partial k'_a}\,\frac{\partial}{\partial k_b}
+  = \sum_{b} (R_g^{-1})^b_{\,a}\,\partial_b
+  = \sum_{b} (R_g^{\mathsf{T}})^b_{\,a}\,\partial_b
+  = \sum_{b} R_g^{a}{}_b\,\partial_b .
+\]
+写成算子形式
+\begin{equation}
+{\partial_{(R_g\mathbf{k})} = R_g\,\partial_{\mathbf{k}} } .
+  \label{eq:deriv}
+\end{equation}
+
+\textbf{特例}：
+\begin{itemize}
+  \item 真旋转 \(R\)：\(\partial(R\mathbf{k}) = R\,\partial(\mathbf{k})\)。
+  \item 空间反演 \(P\)：\(R_g = -I\)，故 \(\partial_{-k} = -\partial_k\)。
+  \item 时间反演 \(T\)：动量同样反转 \(\mathbf{k}\to -\mathbf{k}\)，亦满足
+        \(\partial_{-k} = -\partial_k\)。
+\end{itemize}
+
+\subsection{量子几何张量的幺正变换}
+
+先考虑幺正操作 \(g\)，其投影算符按式\eqref{eq:Pg}变换。代入定义\eqref{eq:Gdef}：
+\begin{align}
+  \mathcal{G}_{ab}(R_g\mathbf{k})
+  &= \operatorname{tr}\bigl[ P(R_g\mathbf{k})\,
+     \partial_{(R_g\mathbf{k})_a} P(R_g\mathbf{k})\,
+     \partial_{(R_g\mathbf{k})_b} P(R_g\mathbf{k}) \bigr] \nonumber\\
+  &= \operatorname{tr}\bigl[ U_g P U_g^\dagger\,
+     \partial_{(R_g\mathbf{k})_a}(U_g P U_g^\dagger)\,
+     \partial_{(R_g\mathbf{k})_b}(U_g P U_g^\dagger) \bigr].
+\end{align}
+利用式\eqref{eq:deriv}替换导数：
+\[
+  \partial_{(R_g\mathbf{k})_a}(U_g P U_g^\dagger)
+  = U_g \bigl( R_g^{a}{}_{a'}\,\partial_{a'}P \bigr) U_g^\dagger
+  + \text{含}(\partial U_g)\text{的项}.
+\]
+代入上一行，利用迹的循环性和 \(U_g^\dagger U_g = I\)，所有含 \(U_g\) 导数的项
+在投影算符的幂等性和迹的循环下彼此抵消或投影为零。因此只剩旋转因子的贡献：
+\begin{align}
+  \mathcal{G}_{ab}(R_g\mathbf{k})
+  &= R_g^{a}{}_{a'} R_g^{b}{}_{b'}\,
+     \operatorname{tr}\bigl[ P\,\partial_{a'}P\,\partial_{b'}P \bigr] \nonumber\\
+  &= R_g^{a}{}_{a'} R_g^{b}{}_{b'}\, \mathcal{G}_{a'b'}(\mathbf{k}).
+  \label{eq:Gg_unitary}
+\end{align}
+这表明 \(\mathcal{G}_{ab}\) 在幺正操作下按二阶张量变换。
+
+\subsection{量子几何张量的反幺正变换}
+
+对反幺正操作 \(gT\)，投影算符按式\eqref{eq:PgT}变换，出现复共轭：
+\[
+  P(R_g\mathbf{k}) = U_g P^*(\mathbf{k}) U_g^\dagger
+  = U_g P^{\mathsf{T}}(\mathbf{k}) U_g^\dagger .
+\]
+对其求导，复共轭 \(P^*\) 与导数算符对易（导数只涉及 \(\mathbf{k}\) 坐标，不改变
+复共轭性质）。结合式\eqref{eq:deriv}，经过和幺正情形相同的抵消途径，
+得到
+\begin{align}
+  \mathcal{G}_{ab}(R_g\mathbf{k})
+  &= R_g^{a}{}_{a'} R_g^{b}{}_{b'}\,
+     \operatorname{tr}\bigl[ P^*\,\partial_{a'}P^*\,\partial_{b'}P^* \bigr]
+   = R_g^{a}{}_{a'} R_g^{b}{}_{b'}\,
+     \operatorname{tr}\bigl[ (P\,\partial_{a'}P\,\partial_{b'}P)^* \bigr] \nonumber\\
+  &= R_g^{a}{}_{a'} R_g^{b}{}_{b'}\,
+     \bigl( \operatorname{tr}\bigl[ P\,\partial_{a'}P\,\partial_{b'}P \bigr] \bigr)^*
+   = R_g^{a}{}_{a'} R_g^{b}{}_{b'}\, \mathcal{G}_{a'b'}^*(\mathbf{k}) .
+  \label{eq:Gg_anti}
+\end{align}
+这里用了迹的性质 \(\operatorname{tr}(A^*) = (\operatorname{tr} A)^*\)。
+
+比较式\eqref{eq:Gg_unitary}和\eqref{eq:Gg_anti}可知，反幺正操作比幺正操作
+多一个复共轭作用于 \(\mathcal{G}\) 整体，等价于对虚部添加一个负号。
+
+\subsection{量子度规的变换}
+
+量子度规是 \(\mathcal{G}_{ab}\) 的实部：\(g_{ab} = \operatorname{Re}\mathcal{G}_{ab}\)。
+从式\eqref{eq:Gg_unitary}和\eqref{eq:Gg_anti}提取实部，复共轭不改变实部，
+故幺正和反幺正两种情形得到\textbf{完全相同的变换规则}：
+\begin{equation}
+{g_{ab}(R_g\mathbf{k}) = R_g^{a}{}_{a'} R_g^{b}{}_{b'}\,g_{a'b'}(\mathbf{k}) } .
+\end{equation}
+
+\textbf{三种基本操作的结论}：
+\begin{itemize}
+  \item \textbf{真旋转 \(R\)}：\(g_{ab}(R\mathbf{k}) = R_a^{a'}R_b^{b'}g_{a'b'}(\mathbf{k})\)。
+  \item \textbf{空间反演 \(P\)}：\(R_g=-I\)，两负得正：
+        \(g_{ab}(-\mathbf{k}) = g_{ab}(\mathbf{k})\)（偶函数）。
+  \item \textbf{时间反演 \(T\)}：亦为偶函数
+        \(g_{ab}(-\mathbf{k}) = g_{ab}(\mathbf{k})\)。
+\end{itemize}
+带归一化量子度规 \(G^{ab}\) 继承相同变换性质。
+
+\subsection{贝里曲率张量的变换}
+
+贝里曲率张量是 \(\mathcal{G}_{ab}\) 的反对称虚部：
+\(\Omega_{ab} = -2\operatorname{Im}\mathcal{G}_{ab}\)。
+由式\eqref{eq:Gg_anti}，反幺正操作的复共轭对虚部产生一个负号。
+统一写作
+\begin{equation}
+{\Omega_{ab}(R_g\mathbf{k}) = (-1)^{\chi}\,
+    R_g^{a}{}_{a'} R_g^{b}{}_{b'}\,\Omega_{a'b'}(\mathbf{k}) },
+  \label{eq:Omega_trans}
+\end{equation}
+其中 \(\chi=0\) 对应幺正操作，\(\chi=1\) 对应反幺正操作。
+
+\textbf{三种基本操作的结论}：
+\begin{itemize}
+  \item \textbf{真旋转 \(R\)}（幺正）：\(\Omega_{ab}(R\mathbf{k}) = R_a^{a'}R_b^{b'}\Omega_{a'b'}(\mathbf{k})\)。
+  \item \textbf{空间反演 \(P\)}（幺正，\(R_g=-I\)）：
+        \(\Omega_{ab}(-\mathbf{k}) = \Omega_{ab}(\mathbf{k})\)（偶函数）。
+  \item \textbf{时间反演 \(T\)}（反幺正，\(\chi=1\)，\(R_g=I\)）：
+        \(\Omega_{ab}(-\mathbf{k}) = -\Omega_{ab}(\mathbf{k})\)（奇函数）。
+\end{itemize}
+
+\subsection{贝里曲率赝矢量的变换}
+
+在三维（及二维向 \(z\) 方向推广）中，常将反对称张量 \(\Omega_{ab}\) 对偶为赝矢量
+\begin{equation}
+  \Omega^c = \frac12\, \epsilon^{cab}\,\Omega_{ab},
+  \qquad
+  \Omega_{ab} = \epsilon_{abc}\,\Omega^c,
+\end{equation}
+其中 \(\epsilon^{abc}\) 为 Levi–Civita 符号，\(\epsilon^{xyz}=+1\)。
+
+利用 \(\epsilon\) 在旋转下的恒等式
+\[
+  \epsilon^{cab} R_g^{a}{}_{a'} R_g^{b}{}_{b'}
+  = \det(R_g)\, R_g^{c}{}_{c'}\,\epsilon^{c'a'b'},
+\]
+对式\eqref{eq:Omega_trans}两边乘 \(\frac12\epsilon^{cab}\) 并对 \(a,b\) 求和，
+得到赝矢量的变换规则：
+\begin{align}
+  \Omega^c(R_g\mathbf{k})
+  &= \frac12 \epsilon^{cab}\, (-1)^\chi\, R_g^{a}{}_{a'} R_g^{b}{}_{b'}\,
+     \Omega_{a'b'}(\mathbf{k}) \nonumber\\
+  &= (-1)^\chi \det(R_g)\, R_g^{c}{}_{c'}\,
+     \frac12\epsilon^{c'a'b'}\,\Omega_{a'b'}(\mathbf{k}) \nonumber\\
+  &= (-1)^\chi \det(R_g)\, R_g^{c}{}_{c'}\,\Omega^{c'}(\mathbf{k}) .
+  \label{eq:Omega_vec}
+\end{align}
+此即赝矢量版本的通用变换公式。
+
+\textbf{三种基本操作的结论}：
+\begin{itemize}
+  \item \textbf{真旋转 \(R\)}（\(\chi=0\)，\(\det=+1\)）：
+        \(\Omega^c(R\mathbf{k}) = R^{c}_{c'}\,\Omega^{c'}(\mathbf{k})\)。
+  \item \textbf{空间反演 \(P\)}（\(\chi=0\)，\(\det=-1\)，\(R_g=-I\)）：
+        \(\Omega^c(-\mathbf{k}) = \Omega^c(\mathbf{k})\)（偶函数）。
+  \item \textbf{时间反演 \(T\)}（\(\chi=1\)，\(\det=+1\)，\(R_g=I\)）：
+        \(\Omega^c(-\mathbf{k}) = -\Omega^c(\mathbf{k})\)（奇函数）。
+\end{itemize}
+
+\subsection{汇总表}
+
+表~\ref{tab:sym_trans} 列出动量导数、量子度规、贝里曲率张量与赝矢量在三种
+基本操作下的变换规则。
+
+\begin{table}[htbp]
+  \centering
+  \caption{基本对称操作下各量的完整变换规则}
+  \label{tab:sym_trans}
+  \footnotesize
+  \begin{tabularx}{\textwidth}{c|X|X|X}
+    \toprule
+    操作 & \(\partial_{\mathbf{k}}\) 的变换 & \(G^{ab}(\mathbf{k})\) 的变换 & \(\Omega^{ab}(\mathbf{k})\) 及 \(\Omega^c(\mathbf{k})\) 的变换 \\
+    \midrule
+    真旋转 \(R\) &
+    \(\partial'_{a} = \sum_{a'} R_{a}^{a'} \partial_{a'} \big|_{R\mathbf{k}}\)
+    &
+    \(G'^{ab}(R\mathbf{k}) = \sum_{a'b'} R_{a'}^{a} R_{b'}^{b} G^{a'b'}(\mathbf{k})\)
+    &
+    \(\begin{aligned}
+      \Omega'^{ab}(R\mathbf{k}) &= \sum_{a'b'} R_{a'}^{a} R_{b'}^{b} \Omega^{a'b'}(\mathbf{k}),\\
+      \Omega'^{c}(R\mathbf{k}) &= \sum_{c'} R_{c'}^{c} \Omega^{c'}(\mathbf{k})
+    \end{aligned}\) \\
+    \midrule
+    空间反演 \(P\) &
+    \(\partial'_{a} = -\partial_{a} \big|_{-\mathbf{k}}\)
+    &
+    \(G'^{ab}(-\mathbf{k}) = G^{ab}(\mathbf{k})\)
+    &
+    \(\Omega'^{ab}(-\mathbf{k}) = \Omega^{ab}(\mathbf{k})\),\newline
+    \(\Omega'^{c}(-\mathbf{k}) = \Omega^{c}(\mathbf{k})\) \\
+    \midrule
+    时间反演 \(T\) &
+    \(\partial'_{a} = -\partial_{a} \big|_{-\mathbf{k}}\)
+    &
+    \(G'^{ab}(-\mathbf{k}) = G^{ab}(\mathbf{k})\)
+    &
+    \(\Omega'^{ab}(-\mathbf{k}) = -\Omega^{ab}(\mathbf{k})\),\newline
+    \(\Omega'^{c}(-\mathbf{k}) = -\Omega^{c}(\mathbf{k})\) \\
+    \midrule
+    \(PT\) (组合) &
+    \(\partial'_{a} = \partial_{a} \big|_{\mathbf{k}}\)
+    &
+    \(G'^{ab}(\mathbf{k}) = G^{ab}(\mathbf{k})\)
+    &
+    \(\Omega'^{ab}(\mathbf{k}) = -\Omega^{ab}(\mathbf{k})\),\newline
+    \(\Omega'^{c}(\mathbf{k}) = -\Omega^{c}(\mathbf{k})\) \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+此表是后续非线性电导率在特定磁群下对称性筛选的直接基础。
+
+\section{应用实例：CrSb中旋转角度依赖的非线性响应}
+\label{sec:CrSb_application}
+
+本节将前述通用框架应用于共线交变磁体 CrSb（磁点群 $6'/m'mm'$），推导出可与实验直接对比的旋转角度依赖关系。
+
+\subsection{CrSb的对称性与三阶电导率张量的非零分量}
+
+CrSb 的磁空间群为 $P6_3'/m'm'c$（194.268），磁点群为
+\begin{equation}
+  \mathcal{G} = 6'/m'mm',
+\end{equation}
+生成元为 $\{E,\,C_{3z},\,M_y,\,\mathcal{P},\,M_x\mathcal{T}\}$。根据表~\ref{tab:3d}，该磁点群属于"三阶主导"类别：一阶反常霍尔效应被对称性禁戒，二阶响应因空间反演 $\mathcal{P}$ 而消失，三阶非线性霍尔效应是最低阶的非平庸横向响应。
+
+利用表~\ref{tab:sym_trans} 的变换规则对 $\sigma_{abcd}^{(3)}$ 进行对称性筛选，得到各基本四极矩在 $6'/m'mm'$ 下的非零分量如下。
+
+\textbf{Drude 四极矩} $\Gamma^{abcd} = \int f_0\,\partial_a\partial_b\partial_c\partial_d\varepsilon$（四指标全对称，3 个独立参数）；\textbf{BCQ} $Q^{abcd} = \int f_0\,\partial_a\partial_b\Omega^{cd}$（前两指标对称、后两反对称，1 个独立参数）；\textbf{QMQ} $G^{abcd} = \int f_0\,\partial_a\partial_b G^{cd}$（前两对称、后两对称，5 个独立参数）。AIC 的对称性与 BCQ 相同。非零分量如下：
+\begin{align}
+  \Gamma_0 &: \Gamma^{xxxx} = \Gamma^{yyyy} = 3\Gamma^{xxyy}, \label{eq:Gamma_CrSb}\\
+  \Gamma_1 &: \Gamma^{xxzz} = \Gamma^{yyzz} \text{（含指标置换）}, \nonumber\\
+  \Gamma_2 &: \Gamma^{zzzz}, \nonumber\\[4pt]
+  Q_0 &: Q^{xyyz} = Q^{yyxz} = -Q^{xxxz}, \label{eq:Q_CrSb}\\[4pt]
+  G_0 &: G^{zzzz}, \qquad G_1: G^{xzxz} = G^{yzyz}, \nonumber\\
+  G_2 &: G^{xxzz} = G^{yyzz}, \qquad G_3: G^{zzxx} = G^{zzyy}, \nonumber\\
+  G_4 &: G^{xxxx} = G^{yyyy}. \label{eq:G_CrSb}
+\end{align}
+表~\ref{tab:theory_prediction} 汇总了不同器件取向中对称性允许的各阶纵/横向信号，核心结论是三阶横向信号仅 XZ 取向非零，由 BCQ/AIC 贡献。
+
+\subsection{一阶响应的旋转角度依赖}
+
+在讨论三阶之前，先分析一阶横向信号的旋转角度依赖。考虑 $x$-$z$ 平面内的二维电导率张量，其一般形式为
+\begin{equation}
+  \sigma^{(1)} = \begin{pmatrix}
+    \sigma_{xx} & \sigma_H \\
+    -\sigma_H & \sigma_{zz}
+  \end{pmatrix},
+  \label{eq:sigma_2d}
+\end{equation}
+其中 $\sigma_H$ 表示可能的反常霍尔电导（反对称部分），$\sigma_{xx}\neq\sigma_{zz}$ 为纵向 Drude 电导的各向异性。当器件相对于晶体主轴绕 $y$ 轴旋转 $\phi$ 角时，新坐标系下的电导率张量为 $\tilde{\sigma}=R_\phi\sigma^{(1)} R_\phi^{\mathsf{T}}$，旋转矩阵
+\begin{equation}
+  R_\phi = \begin{pmatrix}
+    \cos\phi & \sin\phi \\
+    -\sin\phi & \cos\phi
+  \end{pmatrix}.
+\end{equation}
+直接计算可得新坐标系中的横向电导分量为
+\begin{equation}
+  \tilde{\sigma}_{12}(\phi) = \sigma_H + \frac{\sigma_{zz}-\sigma_{xx}}{2}\,\sin 2\phi.
+  \label{eq:sigma12_rot}
+\end{equation}
+
+式~\eqref{eq:sigma12_rot} 两项有截然不同的物理来源：$\sigma_H$ 为二维反对称张量，旋转下不变，给出常数背景；$\frac{\sigma_{zz}-\sigma_{xx}}{2}\sin 2\phi$ 来自纵向电导率各向异性导致的横向泄漏，$\phi=0$ 时消失。一阶电导率为 rank-2 张量，旋转携带两个 $R_\phi$ 因子，最高只能产生 $\sin 2\phi$ 谐波。对 CrSb，$6'/m'mm'$ 强制 $\sigma_H=0$，故预言纯 $\sin 2\phi$ 信号，无常数偏移——已被圆形 Hall bar 实验直接证实（见第~\ref{fig:angle_fit} 节）。
+
+\subsection{三阶响应的旋转角度依赖：四阶张量转动与谐波展开}
+
+三阶电导率 $\sigma_{abcd}^{(3)}$ 是 rank-4 张量。在 $x$-$z$ 平面内绕 $y$ 轴旋转 $\phi_E$ 时，需同时旋转四个指标：
+\begin{equation}
+  \sigma'_{abcd}(\phi_E) = R_{ae}(\phi_E)R_{bf}(\phi_E)R_{cg}(\phi_E)R_{dh}(\phi_E)\,\sigma_{efgh}^{(3)},
+  \label{eq:rank4_rotation}
+\end{equation}
+其中三维旋转矩阵为
+\begin{equation}
+  R(\phi_E) = \begin{pmatrix}
+    \cos\phi_E & 0 & \sin\phi_E \\
+    0 & 1 & 0 \\
+    -\sin\phi_E & 0 & \cos\phi_E
+  \end{pmatrix}.
+  \label{eq:R3d}
+\end{equation}
+
+将式~\eqref{eq:Gamma_CrSb}--\eqref{eq:G_CrSb} 的非零分量代入式~\eqref{eq:rank4_rotation}，针对实验测量的 $\sigma_{zxxx}$ 分量展开。四个旋转矩阵产生 $\sin\phi_E$ 和 $\cos\phi_E$ 的四次单项式（$\sin^3\phi_E\cos\phi_E$、$\sin\phi_E\cos^3\phi_E$、$\sin^2\phi_E\cos^2\phi_E$、$\cos^4\phi_E$），各项系数由 $\Gamma_i$、$Q_0$、$G_i$ 线性组合给出。利用三角恒等式（$\sin^3\phi\cos\phi = (2\sin 2\phi-\sin 4\phi)/8$ 等）化为低次谐波，合并后得：
+\begin{equation}
+  \sigma_{zxxx}(\phi_E) = \mathcal{A} + \mathcal{B}\cos(2\phi_E) + \mathcal{C}\sin(2\phi_E) + \mathcal{D}\sin(4\phi_E).
+  \label{eq:sigma_angle_expand}
+\end{equation}
+各系数与微观参数的关系为
+\begin{equation}
+  \mathcal{A} = \mathcal{B} = -\frac{1}{2}\,Q_0,
+  \label{eq:AB_eq}
+\end{equation}
+\begin{align}
+  \mathcal{C} &= \frac{1}{4}(\Gamma_2 - \Gamma_0) + \frac{1}{4}(G_0 + G_1 - 3G_2 + 3G_3 - G_4), \label{eq:C_coef}\\
+  \mathcal{D} &= \frac{1}{8}(-\Gamma_2 + 6\Gamma_1 - \Gamma_0) + \frac{1}{8}(-G_0 + G_1 + G_2 + G_3 - G_4). \label{eq:D_coef}
+\end{align}
+
+式~\eqref{eq:AB_eq}--\eqref{eq:D_coef} 包含三层关键信息：
+\begin{enumerate}
+  \item \textbf{$\mathcal{A}=\mathcal{B}=-Q_0/2$ 是 BCQ 的独特指纹。} 常数项和 $\cos 2\phi_E$ 系数由 $Q_0$ 唯一决定，与 Drude、QMQ 无关。实验上同时观测到 $\mathcal{A}\neq 0$ 且 $\mathcal{A}=\mathcal{B}$ 构成 BCQ 机制的可证伪判据。
+  \item \textbf{$\mathcal{C}$ 和 $\mathcal{D}$ 由 Drude 与 QMQ 共同贡献。} $\Gamma_2-\Gamma_0$ 反映 $z/x$ 轴 Drude 电导各向异性；$\mathcal{D}$ 为 rank-4 张量特有的 $\sin 4\phi_E$ 高次谐波。$\cos 4\phi_E$ 项因 BCQ 与 Drude/QMQ 贡献恰好抵消而缺失。
+  \item \textbf{内禀相位偏移。} $\mathcal{B}\cos 2\phi_E + \mathcal{C}\sin 2\phi_E = \mathcal{A}'\sin(2\phi_E + \alpha)$，$\tan\alpha = \mathcal{B}/\mathcal{C}$，$\alpha$ 直接度量 BCQ（$\mathcal{B}$）与 Drude/QMQ（$\mathcal{C}$）的相对强度。
+\end{enumerate}
+
+\textbf{一阶与三阶角度依赖的对比。} 一阶为 rank-2 张量（旋转两个 $R_\phi$），仅出 $\sin 2\phi$；三阶为 rank-4 张量（旋转四个 $R(\phi_E)$），出常数项、$\sin 2\phi_E$、$\cos 2\phi_E$、$\sin 4\phi_E$。两者角度分布的本质差异源于张量阶数不同，这本身就是非线性霍尔效应属于高阶响应的直接证据。实验验证见第~\ref{fig:angle_fit} 节。

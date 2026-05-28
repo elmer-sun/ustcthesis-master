@@ -1,0 +1,167 @@
+﻿% !TeX root = ../main.tex
+
+\chapter{定义与基本概念}
+\label{chap:definition}
+
+\section{传统磁有序分类的困境}
+
+\subsection{以净磁矩为核心的铁磁/反铁磁二分法}
+
+自N\'{e}el的奠基性工作以来，凝聚态物理学中的磁有序材料习惯性地被划分为两个基本类别：铁磁体（ferromagnet, FM）与反铁磁体（antiferromagnet, AFM）。这一传统二分法的物理判据极为直观——晶胞内的净自旋磁化强度$M_s$：铁磁体具有非零的$M_s$，而反铁磁体则因反平行自旋排列导致$M_s=0$。
+
+N\'{e}el在1948年进一步将反铁磁体的定义精细化，强调承载反向自旋的磁亚格子必须在晶体学上等价，即$M_s=0$的条件必须由某种对称性来保证\cite{liu_symmetry_2026}。一个经典例子是一维反铁磁链，其中两个磁亚格子由平移对称性联系起来。相比之下，那些磁亚格子不等价但净磁矩为零的体系——称为补偿型亚铁磁体——在磁化-温度曲线和磁滞回线等行为上却往往类似于铁磁体\cite{liu_symmetry_2026}。
+
+\subsection{新型磁体对传统分类的挑战}
+
+随着研究的深入，这一看似清晰的二分法遇到了根本性困难。两个典型例子足以说明问题：
+
+\begin{itemize}
+\item \textbf{倾斜反铁磁体（canted AFM）：} 虽然被冠以“反铁磁”之名，其自旋并非严格反平行，而是存在微小的倾斜角，导致宏观上出现非零的净磁矩。它既不符合“铁磁”的微观自旋排列图像，也不满足“反铁磁”的零净磁矩要求。
+\item \textbf{交错磁体（altermagnet, AM）：} 这是一种新近被识别出的基本磁相。其净磁矩严格为零，与反铁磁体一致；但其能带结构却具有动量依赖的自旋劈裂，这与铁磁体类似，而传统反铁磁体中完全不存在。换言之，一个$M_s=0$的体系却展现出时间反演对称性破缺的能带特征——这在传统二分法框架内无法得到解释。
+\end{itemize}
+
+这些反常明确指向一个事实：\textbf{依赖于净磁矩的传统分类已不足以描述磁有序材料的完整物理景观。} 我们需要一种能够从根本上分离磁几何与自旋-轨道耦合效应的新对称性框架。
+
+\section{非相对论极限下的磁有序分类：共线磁体的三分法}
+
+解决问题的关键在于首先回到非相对论极限——即关掉自旋-轨道耦合（SOC）。此时，自旋空间的旋转与实空间的旋转彼此独立，体系的完整对称性由一个比磁空间群更大的群来描述。正是在这一极限下，磁有序的本质特征——由交换相互作用决定的磁几何——得以清晰呈现。
+
+\subsection{自旋空间群的基本思想}
+
+自旋空间群（spin space group, SSG）近年来重新受到重视并得到迅速发展\cite{Smejkal2022PRX,Liu2022PRX,liu_symmetry_2026,jungwirth_symmetry_2026}。其核心思想是允许自旋空间和实空间的变换\textbf{相互独立}。群元素的一般形式为
+\begin{equation}
+[g_s \| g_l \| \boldsymbol{\tau}],
+\end{equation}
+其中$g_s$是仅作用于自旋空间的操作（自旋旋转、时间反演$\mathcal{T}$），$g_l$是仅作用于实空间的操作（空间旋转、空间反演$P$），$\boldsymbol{\tau}$为平移。当$g_s$与$g_l$可以独立取值时，自旋空间群能够描述比磁空间群丰富得多的对称性景观。
+
+在非相对论极限下，自旋空间群是体系的真实对称群；引入SOC后，$g_s$与$g_l$被“锁定”为相同旋转，自旋空间群退化为磁空间群（magnetic space group, MSG）这一子群。因此，SSG框架将磁几何的本质与SOC的效应彻底分离。
+
+% \subsection{铁磁与反铁磁的严格对称性判据}
+
+% 在SSG框架下，铁磁与反铁磁的二分可以获得严格的群论定义，而不再依赖净磁矩这一表观物理量。定义自旋空间点群$P_{\mathrm{spin}}$为将SSG操作$[g_s\|g_l\|\boldsymbol{\tau}]$映射到其自旋空间部分$g_s$而得到的点群。$P_{\mathrm{spin}}$编码了自旋空间的所有对称性信息，因此可以通过其极性来分类\cite{liu_symmetry_2026}：
+
+% \begin{itemize}
+% \item \textbf{铁磁体（含亚铁磁体）：} $P_{\mathrm{spin}}$为\textbf{极性群}（polar group），即对称性本身不强制净自旋磁化强度$M_s$为零。注意，这包含补偿型亚铁磁体——它们的$M_s=0$并非对称性强制，而是两个晶体学不等价亚格子的磁矩恰好抵消，因此本质上属于铁磁大类。
+% \item \textbf{反铁磁体：} $P_{\mathrm{spin}}$为\textbf{非极性群}（non-polar group），即自旋空间群对称性\textbf{强制}$M_s=0$。这种零净磁矩受到严格的对称性保护，无法被微扰破坏。
+% \end{itemize}
+
+\subsection{共线磁有序的三种基本相}
+
+在非相对论极限下，所有共线磁有序可以根据自旋空间群的群结构严格划分为三个互不相交的类型，分别对应铁磁、常规反铁磁和交错磁三种基本磁相\cite{Smejkal2022PRX,liu_symmetry_2026,jungwirth_symmetry_2026}。这一“三分法”是理解磁有序现代分类的关键。
+
+设顺磁相空间群为$\mathcal{G}$，包含空间反演$P$的半子群为$\mathcal{H}$（指数为2），分解为陪集$\mathcal{G} = \mathcal{H} \cup A\mathcal{H}$。共线磁相自旋独立部分为$\mathrm{SO}(2) \rtimes Z_2^{\mathcal{K}}$（绕共线自旋轴的旋转及绕垂直轴的$180^\circ$旋转联合时间反演）。三种磁相的区别在于非平凡自旋群$G_{\mathrm{NS}}$的构造，特别是陪集生成元$A$的选取\cite{Smejkal2022PRX}：
+
+\begin{enumerate}
+\item \textbf{铁磁相（FM）：} 相反自旋的亚格子不由任何对称操作联系。$P_{\mathrm{spin}}$为极性群，允许$M_s\neq0$。能带在全布里渊区自旋完全极化（自旋向上与向下的能带整体平移）。
+
+\item \textbf{常规反铁磁相（AFM）：} 相反自旋亚格子由空间反演$P$或纯平移$\mathbf{t}$联系。$P_{\mathrm{spin}}$为非极性群，强制$M_s=0$。能带在全布里渊区保持自旋简并——这是常规反铁磁体最核心的能带特征。
+
+\item \textbf{交错磁相（AM）：} 
+\begin{equation}
+G_{\mathrm{NS}} = [E\|\mathcal{H}] + [C_2\|A\mathcal{H}],
+\label{eq:altermag_SSG}
+\end{equation}
+其中$A$是\textbf{实空间旋转操作}（固有或非固有，可含分数平移），但\textbf{既不能是$P$也不能是纯平移}\cite{Smejkal2022PRX,jungwirth_symmetry_2026}。$P_{\mathrm{spin}}$为非极性群，强制$M_s=0$。然而，能带具有动量依赖的自旋劈裂——自旋简并仅在某些高对称线上保持（节点），而在动量空间其他区域被完全解除。这就是非相对论自旋劈裂，是交错磁体的定义性特征。
+\end{enumerate}
+
+\textbf{交错磁性的物理实质}由此变得清晰：它是一种特殊的共线反铁磁序，其相反自旋亚格子由\textbf{实空间旋转}联系起来（而非空间反演或平移）。正是这种旋转联系，使得能带中相反自旋的电子态在动量空间中占据经旋转关联的不同位置，从而产生各向异性的自旋劈裂——净磁矩为零，时间反演对称性却在单电子能带层面破缺。
+
+按照动量空间节点结构的差异，交错磁体可进一步分类：十种非平凡自旋劳厄群穷举了$d$波（2个节面，四种）、$g$波（4个节面，四种）和$i$波（6个节面，两种）三类交错磁体\cite{jungwirth_symmetry_2026}。详细分类见附录\autoref{classification}。
+\section{引入自旋-轨道耦合：完整分类图景}
+
+\subsection{从自旋空间群到磁空间群}
+
+当引入SOC后，自旋空间的旋转必须与实空间旋转锁定为同一操作，自旋空间群对称性降低为其子群——磁空间群。此时，原本被SSG强制为零的净磁化强度，可能在MSG层面不再被禁止：SOC将$g_s$与$g_l$耦合，可以诱导出微小的净磁矩或轨道磁化。这正是含SOC的真实材料中观察到的丰富现象的来源。
+
+\subsection{基于双重判据的完整分类体系}
+
+结合自旋空间点群$P_{\mathrm{spin}}$（非相对论层面的本质分类）与磁空间群MSG对$M$的强制条件（SOC引入后的表现），可以建立磁有序材料的完整分类体系，如\autoref{fig:classification}所示。
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.80\textwidth]{Classification of magnetism.jpg}
+\caption{\textbf{基于自旋空间群的磁有序分类体系\cite{liu_symmetry_2026}。}
+所有磁有序材料首先按自旋空间点群$P_{\mathrm{spin}}$的极性分为铁磁（FM）类和反铁磁（AFM）类。铁磁类包含传统铁磁体和补偿型亚铁磁体。反铁磁类按MSG是否强制$M=0$进一步分为自旋-轨道磁体（SOM）和纯反铁磁体（SS AFM）。交错磁性（altermagnetism）是根据非相对论极限下的自旋群对称性定义的独立磁相——共线且具有非相对论自旋劈裂——可同时分属SS AFM或SOM。}
+\label{fig:classification}
+\end{figure}
+
+该分类体系的核心层次结构如下：
+
+\begin{enumerate}
+\item \textbf{铁磁类（FM Class）：} $P_{\mathrm{spin}}$为极性群，对称性允许非零$M_s$。包含：
+\begin{itemize}
+\item 传统铁磁体，亚铁磁体：$M\neq0$。
+\item 补偿型亚铁磁体：$M=0$，但磁性亚格子晶体学不等价，$M=0$不受对称性保护。
+\end{itemize}
+
+\item \textbf{反铁磁类（AFM Class）：} $P_{\mathrm{spin}}$为非极性群，SSG强制$M_s=0$。对此可以两个独立的角度进行进一步归类，二者并列而非从属：
+\begin{itemize}
+  \item \textbf{按非相对论能带特征：}
+    \begin{itemize}
+      \item \textbf{常规反铁磁体：} 能带在全布里渊区保持自旋简并，无自旋劈裂。
+      \item \textbf{自旋劈裂反铁磁体（SS AFM）：} 能带具有非相对论自旋劈裂。
+    \end{itemize}
+  \item \textbf{按SOC下磁空间群的强制条件：}
+    \begin{itemize}
+      \item \textbf{纯反铁磁型：} MSG仍然强制$M=0$，即净磁化强度在SOC的所有阶都严格为零。
+      \item \textbf{自旋-轨道磁体（SOM）：} MSG不强制$M=0$，SOC可诱导出非零净磁化强度（包括自旋倾斜和轨道磁化），如弱铁磁体和Mn$_3$Sn。
+    \end{itemize}
+\end{itemize}
+这两个分类维度正交，形成四种组合。
+\end{enumerate}
+
+\noindent\textbf{交错磁性的精准定位:}
+
+
+交错磁性（altermagnetism）由其非相对论自旋群对称性定义，条件为：\textbf{共线磁有序} + \textbf{非相对论能带自旋劈裂}。因此，\textbf{交错磁性就是共线的 SS AFM}，是 SS AFM 的一个子类。引入SOC后，交错磁体可以只属于 SS AFM（MSG仍强制$M=0$），也可以同时属于 SS AFM 和 SOM 的\textbf{交集}（MSG不强制$M=0$）。MnTe就是一个清晰实例：面内N\'{e}el矢量时属纯SS AFM，面外N\'{e}el矢量时落入SS AFM与SOM的交集，其$d$波能带劈裂这一交错磁性特征保持不变\cite{jungwirth_symmetry_2026}。
+\begin{itemize}
+\item 若其MSG强制$M=0$，则同时属于纯反铁磁体（SS AFM）；
+\item 若其MSG不强制$M=0$，则同时属于自旋-轨道磁体（SOM）。
+\end{itemize}
+
+以MnTe为例：当N\'{e}el矢量位于面内时，MSG强制$M=0$，属SS AFM；当N\'{e}el矢量沿面外时，MSG不强制$M=0$，属SOM。两种情形下，其交错磁性的非相对论能带特征——动量依赖的自旋劈裂——完全一致\cite{jungwirth_symmetry_2026}。这一双重属性正是自旋空间群将磁几何与SOC效应分离的自然结果。
+
+\section{交错磁性的物理图像与实验特征}
+
+\subsection{实空间图像：高阶自旋密度的铁性序}
+
+交错磁性最富启发性的物理图像在于其局域自旋密度的多极分解。一个交错磁体中原子的局域自旋密度可分解为两部分\cite{jungwirth_symmetry_2026}：
+
+\begin{itemize}
+\item \textbf{偶极分量（$s$波）：} 即通常意义上的自旋磁矩。在相邻磁性子晶格上\textbf{反平行}排列，互相抵消，导致$M=0$。这与常规反铁磁体无异。
+\item \textbf{高阶分量（$d$波、$g$波、$i$波）：} 自旋密度在实空间具有各向异性的角分布（形状类似四叶草或更复杂的瓣状结构）。这一分量在整个晶体中\textbf{铁性平行}排列，取向完全一致——类似于铁磁体中偶极矩的铁性排列，但被隐藏在高阶多极矩中。
+\end{itemize}
+
+传统N\'{e}el反铁磁体中，磁有序纯粹是偶极矩的“反铁性”排列，无高阶铁性序，故能带全BZ自旋简并。交错磁性中，隐秘的铁性高阶分量扮演了类似铁磁体中铁性偶极矩的角色，在保持宏观$M=0$的同时产生时间反演破缺的能带响应\cite{jungwirth_symmetry_2026}。
+
+\subsection{动量空间图像：各向异性自旋劈裂}
+
+在动量空间中，交错磁体的自旋劈裂呈现高度各向异性的特征，与铁磁体的均匀劈裂截然不同。具体的节点结构由其自旋劳厄群决定，分为$d$波（2个节面，四种）、$g$波（4个节面，四种）和$i$波（6个节面，两种）三类\cite{jungwirth_symmetry_2026}。图\ref{fig:altermag_real_momentum}以二维Lieb晶格上的$d$波交错磁序为例，展示了实空间的高阶自旋密度与动量空间的$d$波劈裂等能面。
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{Alter.png}
+\caption{\textbf{交错磁性的实空间与动量空间图像。}
+左：二维Lieb晶格上的$d$波交错磁序，局域自旋密度分解为反平行的偶极分量（圆圈箭头）与铁性排列的$d$波分量（四叶草）。右：动量空间中$d$波形状的自旋劈裂等能面，在节点处自旋简并。这种各向异性节点结构与非常规超流/超导（$^3$He的$p$波、铜氧化物中的$d$波）在对称性上相似，但微观机制迥异：后者源于关联不稳定性，而交错磁性由交换作用与晶格势驱动，可在室温稳定存在\cite{jungwirth_symmetry_2026}。图源：Jungwirth等\cite{jungwirth_symmetry_2026}。}
+\label{fig:altermag_real_momentum}
+\end{figure}
+
+\subsection{量子几何与非线性输运}
+
+引入SOC后，SOM体系中磁性与能带的量子几何紧密交织，为拓扑物态和非线性输运提供了丰富平台。在Mn$_3$Sn这类SOM中，非零的贝里曲率源于SOC引起的能带反交叉，直接导致巨大的反常霍尔效应和反常能斯特效应。这种由对称性破缺和SOC共同塑造的量子几何，构成了非线性输运的理论基础。本文后续章节将讨论在交错磁体中丰富的非线性响应。
+
+\subsection{磁空间群的局限：重访}
+
+在结束本章之前，有必要回到磁空间群的局限问题，这进一步说明了SSG框架的必要性。如\autoref{fig:MSG_vs_SSG}所示，三种形态迥异的磁结构——共线铁磁体LaMnSi$_2$、共线反铁磁体CaIrO$_3$和共面反铁磁体Mn$_3$Ge——竟然共享完全相同的磁空间群$Cm'cm'$。这意味着，仅凭MSG无法区分这些由不同交换相互作用驱动的、具有截然不同自旋几何的磁有序态。
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{Magnetic structure described by MSG and SSG.png}
+\caption{\textbf{用磁空间群（MSG）和自旋空间群（SSG）描述的磁结构。}}
+\label{fig:MSG_vs_SSG}
+\end{figure}
+
+图\ref{fig:MSG_vs_SSG}进一步强化了这一论点：共线反铁磁体MnTe在不同的N\'{e}el矢量取向下对应三个不同的磁空间群，尽管其交换相互作用驱动的自旋排列本质上是完全相同的共线反铁磁序。
+这三种MSG描述了由SOC耦合导致的不同物理响应（如反常霍尔效应的有无），属于不同的物理层面；
+而SSG准确地捕捉了“共线反铁磁几何”这一共同的、由交换作用决定的内禀特征\cite{liu_symmetry_2026}。
+这明确地指向了对超越传统磁空间群的新对称性框架的需求，而自旋空间群正是为此而生。

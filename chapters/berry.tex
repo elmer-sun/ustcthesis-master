@@ -1,0 +1,137 @@
+% !TeX root = ../main.tex
+
+
+
+\chapter{贝里联络与贝里曲率}
+\label{berry}
+本附录详细梳理布洛赫系统中贝里联络与位置算符矩阵元之间的联系，并推导 Berry 曲率的带求和公式\cite{xiao_berry_2010}
+
+\subsection{布洛赫态与贝里联络}
+考虑一个具有周期势的晶体，其单粒子哈密顿量为 \(H = \frac{\mathbf{p}^2}{2m} + V(\mathbf{r})\)。布洛赫定理给出本征态
+\[
+\psi_{n\mathbf{k}}(\mathbf{r}) = e^{i\mathbf{k}\cdot\mathbf{r}} u_{n\mathbf{k}}(\mathbf{r}),
+\]
+其中 \(u_{n\mathbf{k}}(\mathbf{r})\) 具有晶格周期性，满足
+\[
+H(\mathbf{k}) u_{n\mathbf{k}} = E_{n\mathbf{k}} u_{n\mathbf{k}}, \quad
+H(\mathbf{k}) = e^{-i\mathbf{k}\cdot\mathbf{r}} H e^{i\mathbf{k}\cdot\mathbf{r}} = \frac{(\mathbf{p}+\hbar\mathbf{k})^2}{2m} + V(\mathbf{r}).
+\]
+贝里联络（Berry connection）定义为
+\[
+\mathcal{A}_n(\mathbf{k}) = i\braket{u_{n\mathbf{k}} | \nabla_{\mathbf{k}} u_{n\mathbf{k}}},
+\]
+其中内积是对原胞积分 \(\int_{\text{cell}} d^3r\)。
+
+\subsection{从本征方程求导得到的带间关系}
+对 \(H(\mathbf{k}) u_{n\mathbf{k}} = E_{n\mathbf{k}} u_{n\mathbf{k}}\) 两边关于波矢分量 \(k_\mu\) 求导：
+\[
+(\partial_{k_\mu} H) u_{n\mathbf{k}} + H (\partial_{k_\mu} u_{n\mathbf{k}}) = (\partial_{k_\mu} E_{n\mathbf{k}}) u_{n\mathbf{k}} + E_{n\mathbf{k}} (\partial_{k_\mu} u_{n\mathbf{k}}).
+\]
+左乘 \(\bra{u_{m\mathbf{k}}}\)（\(m \neq n\)），利用 \(H\) 的厄米性和 \(\braket{u_{m\mathbf{k}}|u_{n\mathbf{k}}}=0\) 得
+\[
+\bra{u_{m\mathbf{k}}} \partial_{k_\mu} H \ket{u_{n\mathbf{k}}} + E_{m\mathbf{k}} \braket{u_{m\mathbf{k}} | \partial_{k_\mu} u_{n\mathbf{k}}} = E_{n\mathbf{k}} \braket{u_{m\mathbf{k}} | \partial_{k_\mu} u_{n\mathbf{k}}}.
+\]
+整理后即得重要公式
+\begin{equation}
+\label{eq:non-diag}
+\braket{u_{m\mathbf{k}} | \partial_{k_\mu} u_{n\mathbf{k}}} = \frac{ \bra{u_{m\mathbf{k}}} \partial_{k_\mu} H \ket{u_{n\mathbf{k}}} }{ E_{n\mathbf{k}} - E_{m\mathbf{k}} } \qquad (m \neq n). 
+\end{equation}
+此式表明，不同能带间的波函数导数矩阵元完全由哈密顿量的 \(k\) 导数矩阵元和能隙决定。它揭示了带间耦合的动力学起源：\(k\) 的变化通过 \(\partial_{k_\mu} H\) 诱导带间跃迁，其强度反比于能隙。
+
+\subsection{将导数矩阵元与位置算符联系}
+为了将 \(\braket{u_{m\mathbf{k}} | \partial_{k_\mu} u_{n\mathbf{k}}}\) 与位置算符 \(\mathbf{r}\) 的矩阵元联系起来，我们考察 \(H(\mathbf{k})\) 与 \(\mathbf{r}\) 的对易关系。注意到
+\[
+[\mathbf{r}, H(\mathbf{k})] = \frac{i\hbar}{m} (\mathbf{p} + \hbar\mathbf{k}) \equiv \frac{i\hbar}{m} \bm{\pi},
+\]
+其中 \(\bm{\pi}\) 是速度算符相关的量。于是
+\[
+\bm{\pi} = -\frac{im}{\hbar} [\mathbf{r}, H(\mathbf{k})].
+\]
+取其矩阵元：
+\[
+\bra{u_{m\mathbf{k}}} \bm{\pi} \ket{u_{n\mathbf{k}}} = -\frac{im}{\hbar} (E_{n\mathbf{k}}-E_{m\mathbf{k}}) \bra{u_{m\mathbf{k}}} \mathbf{r} \ket{u_{n\mathbf{k}}}.
+\]
+另一方面，由 \(H(\mathbf{k})\) 的表达式易得 \(\partial_{k_\mu} H = \frac{\hbar}{m} \pi_\mu\)。因此
+\[
+\bra{u_{m\mathbf{k}}} \partial_{k_\mu} H \ket{u_{n\mathbf{k}}} = -i (E_{n\mathbf{k}}-E_{m\mathbf{k}}) \bra{u_{m\mathbf{k}}} r_\mu \ket{u_{n\mathbf{k}}}.
+\]
+代入式 \eqref{eq:non-diag} 即得到第二个关键恒等式
+\begin{equation}
+\braket{u_{m\mathbf{k}} | \partial_{k_\mu} u_{n\mathbf{k}}} = -i \bra{u_{m\mathbf{k}}} r_\mu \ket{u_{n\mathbf{k}}} \qquad (m \neq n). 
+\end{equation}
+该式直接将波函数的 \(k\) 导数（几何量）与位置算符的矩阵元（动力学量）等同起来。它在带间子空间内建立了傅里叶对偶关系：\(i\partial_{k_\mu}\) 相当于位置算符 \(r_\mu\)。
+
+\subsection{对角元 (\(m=n\)) 与规范依赖性}
+当 \(m=n\) 时，式 \eqref{eq:non-diag} 分母为零，不能直接使用。此时从求导方程得到的是 Hellmann–Feynman 定理：
+\[
+\bra{u_{n\mathbf{k}}} \partial_{k_\mu} H \ket{u_{n\mathbf{k}}} = \partial_{k_\mu} E_{n\mathbf{k}}.
+\]
+而 \(\braket{u_{n\mathbf{k}} | \partial_{k_\mu} u_{n\mathbf{k}}}\) 本身是纯虚数（由归一化条件保证），且依赖于本征态的相位选择。若作规范变换 \(\ket{u_{n\mathbf{k}}} \to e^{i\phi_n(\mathbf{k})}\ket{u_{n\mathbf{k}}}\)，则
+\[
+\braket{u_{n\mathbf{k}} | \partial_{k_\mu} u_{n\mathbf{k}}} \to \braket{u_{n\mathbf{k}} | \partial_{k_\mu} u_{n\mathbf{k}}} + i\partial_{k_\mu}\phi_n.
+\]
+贝里联络 \(\mathcal{A}^{(n)}_\mu = i\braket{u_{n\mathbf{k}} | \partial_{k_\mu} u_{n\mathbf{k}}}\) 是实数，且变换为 \(\mathcal{A}^{(n)}_\mu \to \mathcal{A}^{(n)}_\mu - \partial_{k_\mu}\phi_n\)，与电磁势的规范变换完全类似。因此，对角元本身不是可观测的，但其构成的闭合路径积分（Berry 相位）以及由其旋度得到的 Berry 曲率是规范不变的。
+
+\subsection{Berry 曲率的带求和公式}
+Berry 曲率定义为
+\[
+\Omega^{(n)}_{\mu\nu}(\mathbf{k}) = \partial_{k_\mu}\mathcal{A}^{(n)}_\nu - \partial_{k_\nu}\mathcal{A}^{(n)}_\mu.
+\]
+用投影算符形式可写成
+\[
+\Omega^{(n)}_{\mu\nu} = -2\,\mathrm{Im}\, \braket{\partial_{k_\mu} u_{n} | \partial_{k_\nu} u_{n}}.
+\]
+插入完备关系 \(\sum_m \ket{u_{m\mathbf{k}}}\bra{u_{m\mathbf{k}}} = 1\)，并注意到 \(m=n\) 项贡献为纯虚数（仅影响实部），可得
+\[
+\braket{\partial_{k_\mu} u_{n} | \partial_{k_\nu} u_{n}} = \sum_{m \neq n} \braket{\partial_{k_\mu} u_{n} | u_{m}} \braket{u_{m} | \partial_{k_\nu} u_{n}}.
+\]
+利用式 \eqref{eq:non-diag} 及其复共轭关系：
+\[
+\braket{u_{m} | \partial_{k_\nu} u_{n}} = \frac{ \bra{u_{m}} \partial_{k_\nu} H \ket{u_{n}} }{ E_{n}-E_{m} }, \quad
+\braket{\partial_{k_\mu} u_{n} | u_{m}} = \frac{ \bra{u_{n}} \partial_{k_\mu} H \ket{u_{m}} }{ E_{n}-E_{m} }.
+\]
+代入得
+\[
+\braket{\partial_{k_\mu} u_{n} | \partial_{k_\nu} u_{n}} = \sum_{m \neq n} \frac{ \bra{u_{n}} \partial_{k_\mu} H \ket{u_{m}} \bra{u_{m}} \partial_{k_\nu} H \ket{u_{n}} }{ (E_{n}-E_{m})^2 }.
+\]
+因此 Berry 曲率的带求和公式为
+\begin{equation}
+\Omega^{(n)}_{\mu\nu}(\mathbf{k}) = -2\,\mathrm{Im} \sum_{m \neq n} \frac{ \bra{u_{n}} \partial_{k_\mu} H \ket{u_{m}} \bra{u_{m}} \partial_{k_\nu} H \ket{u_{n}} }{ (E_{n\mathbf{k}}-E_{m\mathbf{k}})^2 }. 
+\end{equation}
+此式清晰地表明：
+\begin{itemize}
+    \item Berry 曲率完全由带间矩阵元 \(\bra{u_m} \partial_{k_\mu} H \ket{u_n}\) 和能隙决定；
+    \item 小能隙（带间接近简并）会增强几何效应；
+    \item 虚部的出现要求矩阵元具有非平凡的相位结构（例如时间反演对称性被破坏时）。
+\end{itemize}
+
+同时，上述表达式中的实部给出了量子几何张量的度量部分：
+\[
+g^{(n)}_{\mu\nu}(\mathbf{k}) = \mathrm{Re} \sum_{m \neq n} \frac{ \bra{u_{n}} \partial_{k_\mu} H \ket{u_{m}} \bra{u_{m}} \partial_{k_\nu} H \ket{u_{n}} }{ (E_{n\mathbf{k}}-E_{m\mathbf{k}})^2 }.
+\]
+它描述了两个无限接近的布洛赫态在投影 Hilbert 空间中的“距离”，是研究量子几何效应
+的基础。
+
+值得注意，Berry 曲率有两种等价表示：
+\[
+\Omega^c = \frac12\,\epsilon^{cab}\,\Omega_{ab},
+\qquad
+\Omega_{ab} = \epsilon_{abc}\,\Omega^c.
+\]
+
+
+
+
+\subsection{小结}
+本附录通过系统的代数推导，建立了以下核心结论：
+\begin{enumerate}
+    \item 对于 \(m \neq n\)，有 \(\braket{u_m|\partial_{k_\mu}u_n} = \bra{u_m|\partial_{k_\mu}H|u_n}/(E_n-E_m)\)；
+    \item 利用 \([\mathbf{r}, H(\mathbf{k})]\) 可进一步得到 \(\braket{u_m|\partial_{k_\mu}u_n} = -i\bra{u_m}r_\mu\ket{u_n}\)；
+    \item 对角元 \(\braket{u_n|\partial_{k_\mu}u_n}\) 规范依赖，但 Berry 曲率规范不变；
+    \item Berry 曲率的带求和公式将几何量与动力学矩阵元和能隙直接关联。
+\end{enumerate}
+这些关系构成了现代固体理论中研究量子几何与拓扑效应的数学基础。
+
+
+
+

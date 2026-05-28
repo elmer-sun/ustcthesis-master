@@ -1,0 +1,557 @@
+﻿% !TeX root = ../main.tex
+\chapter{混频理论推导}
+\label{MWM}
+
+本附录在附录~\ref{nonlinear-hall} 的半经典框架基础上，将其推广到含时双频电场情形，推导多波混频的各频率分量响应。
+基础的量子几何定义（贝里联络、贝里曲率）见附录~\ref{berry}，
+半经典运动方程、玻尔兹曼方程及微扰展开的细节见附录~\ref{nonlinear-hall}。
+此处仅列出混频推导所需的核心方程。
+
+\section{驱动电场与基本方程}
+
+均匀含时电场为两个频率的叠加，
+\begin{equation}
+\mathbf{E}(t) = \mathrm{Re}\!\Big[\mathbf{E}_0 e^{i\omega_1 t} + \mathbf{E}_0 e^{i\omega_2 t}\Big],
+\label{eq:E_field}
+\end{equation}
+其中 \(\mathbf{E}_0 \in \mathbb{R}^3\)。分布函数仍按电场幂次展开，
+\(f = f_0 + \sum_{n=1}^\infty f_n\)，\(f_n \propto (\mathbf{E}_0)^n\)，
+弛豫时间近似下的递推关系为
+\begin{equation}
+\left(\partial_t + \frac{1}{\tau}\right) f_{n+1} = \frac{e}{\hbar}\,\mathbf{E}(t)\cdot\nabla_\mathbf{k} f_n.
+\label{eq:recurrence}
+\end{equation}
+电流密度 \(\mathbf{j}(t) = -e \int [dk]\, f(\mathbf{k},t)\,\dot{\mathbf{r}}\)，
+其中半经典速度 \(\dot{\mathbf{r}}\) 包含群速度和反常速度两部分。
+将电流按电场幂次展开为 \(\mathbf{j} = \sum_{n=1}^\infty \mathbf{j}^{(n)}\)，
+各频率分量的复振幅通过非线性电导率张量定义为
+\begin{equation}
+\tilde{j}^{(n)}_a(\omega) = \sigma^{(n)}_{a;\alpha_1\cdots\alpha_n}(\omega)\, E_{0,\alpha_1}\!\cdots E_{0,\alpha_n}.
+\label{eq:sigma_def}
+\end{equation}
+
+与附录~\ref{nonlinear-hall} 的直流推导不同，此处只考虑电场对分布函数的修正
+（即仅保留 Drude 项和 Berry 曲率多极子项），忽略电场对波函数的影响
+（QMQ、AIC 等贡献），因为正文对称性分析已表明后者在 CrSb 中均被禁戒或可忽略。
+\section{一阶分布函数}
+
+在递推关系 \eqref{eq:recurrence} 中令 \(n=0\)，得到
+\[
+\left(\partial_t + \frac{1}{\tau}\right) f_1 = \frac{e}{\hbar}\,\mathbf{E}(t)\cdot\nabla_\mathbf{k} f_0.
+\]
+我们将双色场 \eqref{eq:E_field} 写为正、负频率分量的和，
+\begin{equation}
+\mathbf{E}(t) = \frac12 \sum_{q=1,2} \mathbf{E}_0 \big(e^{i\omega_q t} + e^{-i\omega_q t}\big),
+\qquad \mathbf{E}_0\in\mathbb{R}^3.
+\end{equation}
+一阶分布函数按相同谐波分解，但不引入额外的 \(1/2\) 因子：
+\begin{equation}
+f_1(\mathbf{k},t) = \sum_{p=1,2} \big( F_p(\mathbf{k}) e^{i\omega_p t} + F_p^*(\mathbf{k}) e^{-i\omega_p t} \big).
+\end{equation}
+代入玻尔兹曼方程并比较 \(e^{i\omega_p t}\) 的系数，得
+\begin{equation}
+(i\omega_p + 1/\tau) F_p = \frac{e}{2\hbar}\, \mathbf{E}_0\!\cdot\!\nabla_\mathbf{k} f_0,
+\end{equation}
+于是
+\begin{equation}
+F_p(\mathbf{k}) = \frac{e}{2\hbar}\,\frac{1}{i\omega_p + 1/\tau}\, \mathbf{E}_0\!\cdot\!\nabla_\mathbf{k} f_0
+= \frac{e}{2\hbar}\,\frac{\tau}{1+i\omega_p\tau}\, \mathbf{E}_0\!\cdot\!\nabla_\mathbf{k} f_0.
+\label{eq:Fp}
+\end{equation}
+因此一阶非平衡分布的紧凑结果为
+\begin{equation}
+{ f_1(\mathbf{k},t) = \frac{e}{\hbar}\,\mathrm{Re}\!\sum_{p=1,2} \frac{\tau}{1+i\omega_p\tau}\,(\mathbf{E}_0\!\cdot\!\nabla_\mathbf{k} f_0)\,e^{i\omega_p t} }.
+\label{eq:f1_result}
+\end{equation}
+尽管该实形式包含因子 \(e/\hbar\) 而不含 \(1/2\)，但在 \(\omega_p\) 处的傅里叶振幅等于 \eqref{eq:Fp} 所给的 \(F_p\)。后续计算将采用以 \(F_p\) 表述的谐波形式。
+
+\section{二阶反常霍尔响应}
+
+二阶电场下反常速度对电流的贡献为
+\begin{equation}
+j^{(2)}_a(t) = -\frac{e^2}{\hbar}\,\epsilon_{abc} \int [dk]\, f_1(\mathbf{k},t)\,E_b(t)\,\Omega_c(\mathbf{k}),
+\label{eq:j2_anom}
+\end{equation}
+其中 \(f_1\) 取自 \eqref{eq:f1_result}，电场取自 \eqref{eq:E_field}。
+采用谐波形式更为方便：
+\begin{align}
+E_b(t) &= \frac12 \sum_{q=1,2} E_{0,b}\big(e^{i\omega_q t} + e^{-i\omega_q t}\big), \\[2pt]
+f_1(\mathbf{k},t) &= \sum_{p=1,2} \big( F_p(\mathbf{k}) e^{i\omega_p t} + F^*_p(\mathbf{k}) e^{-i\omega_p t} \big),
+\end{align}
+其中 \(F_p\) 由 \eqref{eq:Fp} 定义。乘积 \(f_1E_b\) 产生全部和频与差频项：
+\begin{equation}
+f_1(\mathbf{k},t)E_b(t) = \frac12 E_{0,b} \sum_{p,q=1,2} \sum_{s,t=\pm} F_p^{(s)}(\mathbf{k})\, e^{i(s\omega_p + t\omega_q)t},
+\label{eq:f1E_product}
+\end{equation}
+此处 \(F_p^{(+)}=F_p\)，\(F_p^{(-)}=F_p^*\)。
+
+现在提取电流 \(\mathbf{j}^{(2)}(t)\) 中物理上不同的频率分量，并用 **贝里曲率偶极子** 张量表示它们。为简化记号，引入无量纲复因子
+\begin{equation}
+\zeta(\omega) \equiv \frac{1}{1+i\omega\tau},
+\qquad
+\bar\zeta(\omega) = \zeta(-\omega) = \frac{1}{1-i\omega\tau}.
+\label{eq:zeta_def}
+\end{equation}
+特别地，记 \(\zeta_p \equiv \zeta(\omega_p)\)，\(\bar\zeta_p \equiv \zeta(-\omega_p)\)。
+
+\subsection{和频 \(\omega_1+\omega_2\)}
+
+正比于 \(e^{i(\omega_1+\omega_2)t}\) 的项来自 \((s,t)=(+,+)\) 且 \((p,q)=(1,2)\) 和 \((2,1)\)。利用 \eqref{eq:j2_anom} 得到复电流振幅
+\begin{align}
+\tilde j_a(\omega_1+\omega_2) &= -\frac{e^3}{4\hbar^2}\,\epsilon_{abc}\,E_{0,b}\,
+\Big(\zeta_1 + \zeta_2\Big)\,\tau
+\int [dk]\, \Omega_c(\mathbf{k})\,E_{0,d}\,\partial_d f_0(\mathbf{k})\notag\\
+&= \frac{e^3}{4\hbar^2}\,\tau\,\big(\zeta_1+\zeta_2\big)\,
+\epsilon_{abc}\,E_{0,b}E_{0,d}\,D_{cd},
+\label{eq:j_sum}
+\end{align}
+其中我们使用了下面引入的贝里曲率偶极子张量 \(D_{cd}\) 的定义。
+
+\subsection{二次谐波 \(2\omega_1\) 和 \(2\omega_2\)}
+
+对倍频 \(2\omega_1\)，选择 \((p,q)=(1,1)\) 与 \((s,t)=(+,+)\)，得到
+\begin{align}
+\tilde j_a(2\omega_1) &= -\frac{e^3}{4\hbar^2}\,\zeta_1\,\tau\,
+\epsilon_{abc}\,E_{0,b}\, \int [dk]\, \Omega_c\,E_{0,d}\,\partial_d f_0 \notag\\
+&= \frac{e^3}{4\hbar^2}\,\tau\,\zeta_1\,
+\epsilon_{abc}\,E_{0,b}E_{0,d}\,D_{cd},
+\label{eq:j_2w1}
+\end{align}
+\(2\omega_2\) 分量的表达式与之类似，只需将 \(\omega_1\) 换为 \(\omega_2\)。
+
+\subsection{差频 \(\omega_1-\omega_2\)}
+
+当 \(\omega_1>\omega_2\) 时，\((s,t)=(+,-),\,(1,2)\) 和 \((-,+),(2,1)\) 项贡献差频：
+\begin{align}
+\tilde j_a(\omega_1-\omega_2) &= -\frac{e^3}{4\hbar^2}\,\epsilon_{abc}\,E_{0,b}\,
+\Big(\zeta_1 + \bar\zeta_2\Big)\,\tau
+\int [dk]\, \Omega_c\,E_{0,d}\,\partial_d f_0 \notag\\
+&= \frac{e^3}{4\hbar^2}\,\tau\,\big(\zeta_1+\bar\zeta_2\big)\,
+\epsilon_{abc}\,E_{0,b}E_{0,d}\,D_{cd}.
+\label{eq:j_diff}
+\end{align}
+
+\subsection{直流（整流）电流}
+
+乘积 \(f_1E_b\) 也包含与时间无关的项，它们在 \(\omega_1\neq\omega_2\) 时仍然给出整流响应。  
+这些项来自满足 \(s\omega_p+t\omega_q=0\) 的组合。对 \(p,q\in\{1,2\}\)，\(s,t=\pm\)，仅有的零频贡献为 \(s=+,t=-,p=q\) 和 \(s=-,t=+,p=q\)。因此
+\[
+f_1(\mathbf{k},t)E_b(t)\big|_{\text{dc}} = \frac12 E_{0,b}\sum_{p=1,2}\big(F_p+F_p^*\big)
+= E_{0,b}\sum_{p=1,2}\mathrm{Re}(F_p).
+\]
+代入 \eqref{eq:j2_anom} 给出整流电流
+\begin{equation}
+\tilde j_a(0) = -\frac{e^2}{\hbar}\,\epsilon_{abc}\,E_{0,b}
+\int [dk]\,\Omega_c(\mathbf{k})\sum_{p=1,2}\mathrm{Re}\big(F_p(\mathbf{k})\big).
+\label{eq:j_dc_raw}
+\end{equation}
+利用 \(F_p = \frac{e}{2\hbar}\,\tau\,\zeta_p\,\mathbf{E}_0\!\cdot\!\nabla f_0\) 以及 \(\mathrm{Re}(\zeta_p) = \frac{1}{1+(\omega_p\tau)^2} = \frac{\zeta_p+\bar\zeta_p}{2}\)，可得
+\begin{equation}
+\mathrm{Re}(F_p) = \frac{e}{4\hbar}\,\tau\,(\zeta_p+\bar\zeta_p)\,\mathbf{E}_0\!\cdot\!\nabla f_0.
+\end{equation}
+动量空间积分通过与导出贝里曲率偶极子相同的分部积分处理。结果为
+\begin{equation}
+\tilde j_a(0) = \frac{e^3}{4\hbar^2}\,\tau\,
+\big(\zeta_1+\bar\zeta_1+\zeta_2+\bar\zeta_2\big)\,
+\epsilon_{abc}\,E_{0,b}E_{0,d}\,D_{cd}.
+\label{eq:j_rect}
+\end{equation}
+方程 \eqref{eq:j_rect} 是 \(\omega_1\neq\omega_2\) 时一般的整流二阶反常霍尔电流。当两个频率相等时，可直接在 \eqref{eq:j_rect} 中令 \(\omega_1=\omega_2\) 得到直流响应。
+
+\subsection{贝里曲率偶极子}
+
+以上所有表达式都包含相同的 \(f_0\) 梯度积分。分部积分给出
+\begin{equation}
+\int [dk]\, \Omega_c(\mathbf{k})\, \partial_d f_0(\mathbf{k})
+= -\int [dk]\, f_0(\mathbf{k})\, \partial_d\Omega_c(\mathbf{k}),
+\end{equation}
+其中边界项因布里渊区的周期性而消失。得到的对象即为 **贝里曲率偶极子** 张量，
+\begin{equation}
+D_{cd} \equiv \int [dk]\, f_0(\mathbf{k})\, \partial_d\Omega_c(\mathbf{k}).
+\label{eq:dipole_def}
+\end{equation}
+它是一个二阶赝张量，刻画了占据态上贝里曲率的一阶矩。
+
+\subsection{二阶非线性电导率张量}
+
+由 \eqref{eq:j_sum}--\eqref{eq:j_rect} 可读出由 \eqref{eq:sigma_def} 定义的二阶霍尔电导率张量的非零分量：
+\begin{align}
+\sigma^{(2)}_{a;bd}(\omega_1+\omega_2) &= \frac{e^3}{4\hbar^2}\,\tau\,
+\big(\zeta_1+\zeta_2\big)\,\epsilon_{abc}\,D_{cd}, \label{eq:sigma2_sum}\\
+\sigma^{(2)}_{a;bd}(2\omega_p) &= \frac{e^3}{4\hbar^2}\,\tau\,\zeta_p\,\epsilon_{abc}\,D_{cd},
+\qquad p=1,2, \label{eq:sigma2_2w}\\
+\sigma^{(2)}_{a;bd}(\omega_1-\omega_2) &= \frac{e^3}{4\hbar^2}\,\tau\,
+\big(\zeta_1+\bar\zeta_2\big)\,\epsilon_{abc}\,D_{cd}, \label{eq:sigma2_diff}\\
+\sigma^{(2)}_{a;bd}(0) &= \frac{e^3}{4\hbar^2}\,\tau\,
+\big(\zeta_1+\bar\zeta_1+\zeta_2+\bar\zeta_2\big)\,\epsilon_{abc}\,D_{cd}. \label{eq:sigma2_rect}
+\end{align}
+这些表达式构成了双色驱动下由贝里曲率偶极子引起的完整二阶反常霍尔响应。
+
+\subsection{低频极限}
+
+在低频极限 \(\omega_p\tau \ll 1\) 下，所有无量纲阻抗趋于 \(1\)，\(\zeta_p,\bar\zeta_p,\zeta(\omega) \to 1\)。电导率 \eqref{eq:sigma2_sum}--\eqref{eq:sigma2_rect} 变为与频率无关的实常数：
+\[
+\begin{aligned}
+\sigma^{(2)}_{a;bd}(0) &= \frac{e^3}{\hbar^2}\,\tau\,\epsilon_{abc}D_{cd},\\[4pt]
+\sigma^{(2)}_{a;bd}(\omega_1\pm\omega_2) &= \frac{e^3}{2\hbar^2}\,\tau\,\epsilon_{abc}D_{cd},\\[4pt]
+\sigma^{(2)}_{a;bd}(2\omega_p) &= \frac{e^3}{4\hbar^2}\,\tau\,\epsilon_{abc}D_{cd}.
+\end{aligned}
+\]
+
+因此双边傅里叶系数之比为
+\[
+\tilde j(0) \;:\; \tilde j(\omega_1+\omega_2) \;:\; \tilde j(\omega_1-\omega_2) \;:\; \tilde j(2\omega_1) \;:\; \tilde j(2\omega_2)
+\;=\; 4 \;:\; 2 \;:\; 2 \;:\; 1 \;:\; 1 .
+\]
+另一方面，双色场的平方
+\[
+(\cos\omega_1 t+\cos\omega_2 t)^2 = 1 + \tfrac12\cos 2\omega_1 t + \tfrac12\cos 2\omega_2 t + \cos(\omega_1+\omega_2)t + \cos(\omega_1-\omega_2)t,
+\]
+其双边傅里叶系数集为 \(\{1,\; \tfrac14,\;\tfrac14,\;\tfrac12,\;\tfrac12\}\)，分别对应分量 \(\{0,\;2\omega_1,\;2\omega_2,\;\omega_1+\omega_2,\;\omega_1-\omega_2\}\)。  
+将后一组系数乘以公因子 \(4\) 恰好重现由玻尔兹曼方程导出的比例 \(4:1:1:2:2\)。
+
+\section{二阶分布函数}
+\label{sec:f2}
+
+为计算三阶电流，需要二阶修正 \(f_2(\mathbf{k},t)\)。
+它满足递推关系 \eqref{eq:recurrence} 当 \(n=1\)：
+\begin{equation}
+\big(\partial_t + \gamma\big) f_2 = \frac{e}{\hbar}\,\mathbf{E}(t)\cdot\nabla_{\mathbf{k}} f_1,
+\qquad \gamma \equiv \frac1\tau.
+\label{eq:f2_eq}
+\end{equation}
+我们继续对 \(f_1\) 使用谐波表示，
+\[
+f_1(\mathbf{k},t) = \sum_{p=1,2} \big( F_p(\mathbf{k}) e^{i\omega_p t} + F_p^*(\mathbf{k}) e^{-i\omega_p t} \big),
+\]
+其中 \(F_p\) 由 \eqref{eq:Fp} 给出。源项中所需的梯度为
+\[
+\nabla_{\mathbf{k}} f_1 = \sum_{p=1,2} \big( \nabla_{\mathbf{k}} F_p\, e^{i\omega_p t} + \nabla_{\mathbf{k}} F_p^*\, e^{-i\omega_p t} \big).
+\]
+将其与电场 \eqref{eq:E_field} 代入 \eqref{eq:f2_eq} 的右端，得到
+\begin{align}
+S(\mathbf{k},t) &\equiv \frac{e}{\hbar}\,\mathbf{E}(t)\cdot\nabla_{\mathbf{k}} f_1 \notag\\
+&= \frac{e}{2\hbar}\sum_{p,q=1,2}\Big[
+      (\mathbf{E}_0\!\cdot\!\nabla F_p) e^{i(\omega_p+\omega_q)t}
+      + (\mathbf{E}_0\!\cdot\!\nabla F_p) e^{i(\omega_p-\omega_q)t}
+      \notag\\
+      &\qquad\qquad
+      + (\mathbf{E}_0\!\cdot\!\nabla F_p^*) e^{i(-\omega_p+\omega_q)t}
+      + (\mathbf{E}_0\!\cdot\!\nabla F_p^*) e^{i(-\omega_p-\omega_q)t}
+      \Big].
+\label{eq:S_full}
+\end{align}
+从该傅里叶级数中读出由 \(\pm\omega_p\pm\omega_q\) 产生的频率处的系数：
+\begin{align}
+S_{\omega_1+\omega_2} &= \frac{e}{2\hbar}\big(\mathbf{E}_0\!\cdot\!\nabla F_1 + \mathbf{E}_0\!\cdot\!\nabla F_2\big), \label{eq:S_sum}\\
+S_{2\omega_p} &= \frac{e}{2\hbar}\,\mathbf{E}_0\!\cdot\!\nabla F_p, \qquad p=1,2, \label{eq:S_2w}\\
+S_{\omega_1-\omega_2} &= \frac{e}{2\hbar}\big(\mathbf{E}_0\!\cdot\!\nabla F_1 + \mathbf{E}_0\!\cdot\!\nabla F_2^*\big), \label{eq:S_diff}\\
+S_0 &= \frac{e}{2\hbar}\sum_{p=1,2}\big(\mathbf{E}_0\!\cdot\!\nabla F_p + \mathbf{E}_0\!\cdot\!\nabla F_p^*\big). \label{eq:S_0}
+\end{align}
+所有负频率分量均可通过复共轭得到。
+
+现在计算标量积 \(\mathbf{E}_0\!\cdot\!\nabla F_p\)。由 \eqref{eq:Fp}，
+\[
+\mathbf{E}_0\!\cdot\!\nabla F_p = \frac{e}{2\hbar}\frac{\tau}{1+i\omega_p\tau}\, (\mathbf{E}_0\!\cdot\!\nabla)^2 f_0
+= \frac{e}{2\hbar}\,\tau\,\zeta_p\,\mathcal{L}f_0,
+\]
+其中引入了 \(\mathcal{L} \equiv (\mathbf{E}_0\!\cdot\!\nabla)^2\)。使用 \eqref{eq:zeta_def} 的记号，同样有
+\[
+\mathbf{E}_0\!\cdot\!\nabla F_p^* = \frac{e}{2\hbar}\,\tau\,\bar\zeta_p\,\mathcal{L}f_0.
+\]
+将这些结果代入 \eqref{eq:S_sum}--\eqref{eq:S_0} 可得
+\begin{align}
+S_{\omega_1+\omega_2} &= \frac{e^2}{4\hbar^2}\,\tau\,(\zeta_1+\zeta_2)\,\mathcal{L}f_0, \label{eq:S_sum2}\\
+S_{2\omega_p} &= \frac{e^2}{4\hbar^2}\,\tau\,\zeta_p\,\mathcal{L}f_0, \label{eq:S_2w2}\\
+S_{\omega_1-\omega_2} &= \frac{e^2}{4\hbar^2}\,\tau\,(\zeta_1+\bar\zeta_2)\,\mathcal{L}f_0, \label{eq:S_diff2}\\
+S_0 &= \frac{e^2}{4\hbar^2}\,\tau\,(\zeta_1+\bar\zeta_1+\zeta_2+\bar\zeta_2)\,\mathcal{L}f_0. \label{eq:S_02}
+\end{align}
+
+频域中的玻尔兹曼方程为 \((i\omega+\gamma)\hat f_2(\omega) = S_\omega\)。利用
+\[
+\frac{1}{i\omega+\gamma} = \tau\,\zeta(\omega),
+\]
+得到二阶分布函数的基本构造块：
+\begin{align}
+\hat f_2(2\omega_p) &= \frac{e^2}{4\hbar^2}\,\tau^2\,\zeta_p\,\zeta(2\omega_p)\,\mathcal{L}f_0, \label{eq:f2_2w}\\[4pt]
+\hat f_2(\omega_1+\omega_2) &= \frac{e^2}{4\hbar^2}\,\tau^2\,(\zeta_1+\zeta_2)\,
+  \zeta(\omega_1+\omega_2)\,\mathcal{L}f_0, \label{eq:f2_sum}\\[4pt]
+\hat f_2(\omega_1-\omega_2) &= \frac{e^2}{4\hbar^2}\,\tau^2\,(\zeta_1+\bar\zeta_2)\,
+  \zeta(\omega_1-\omega_2)\,\mathcal{L}f_0, \label{eq:f2_diff}\\[4pt]
+\hat f_2(0) &= \frac{S_0}{\gamma}
+            = \frac{e^2}{4\hbar^2}\,\tau^2\,
+            \big(\zeta_1+\bar\zeta_1+\zeta_2+\bar\zeta_2\big)\,\mathcal{L}f_0. \label{eq:f2_dc}
+\end{align}
+对所有负频率有 \(\hat f_2(-\omega) = \hat f_2(\omega)^*\)。
+汇总所有贡献，完整的二阶分布函数为
+\begin{equation}
+f_2(\mathbf{k},t) = \hat f_2(0) + 2\,\mathrm{Re}\!\sum_{\omega>0} \hat f_2(\omega)\, e^{i\omega t},
+\label{eq:f2_full}
+\end{equation}
+其中求和中包含的正频率为 \(\omega_1+\omega_2,\,2\omega_1,\,2\omega_2\) 以及（当 \(\omega_1>\omega_2\) 时）\(\omega_1-\omega_2\)。
+方程 \eqref{eq:f2_full} 连同 \eqref{eq:f2_2w}--\eqref{eq:f2_dc} 给出了完整的二阶非平衡分布。
+
+\section{来自贝里曲率四极子的三阶反常霍尔响应}
+\label{sec:third_order}
+
+三阶电流中反常速度部分的贡献为
+\begin{equation}
+j^{(3)}_a(t) = -\frac{e^2}{\hbar}\,\epsilon_{abc}\int [dk]\,
+f_2(\mathbf{k},t)\,E_b(t)\,\Omega_c(\mathbf{k}),
+\label{eq:j3_def}
+\end{equation}
+其中 \(f_2\) 由 \eqref{eq:f2_full} 给出，电场由 \eqref{eq:E_field} 给出。
+代入傅里叶表示
+\begin{align}
+f_2(\mathbf{k},t) &= \sum_{\omega} \hat f_2(\omega;\mathbf{k})\, e^{i\omega t},
+\quad \omega = 0,\; \pm(\omega_1+\omega_2),\; \pm 2\omega_1,\; \pm 2\omega_2,\; \pm(\omega_1-\omega_2), \label{eq:f2_Fourier}\\
+E_b(t) &= \frac12 E_{0,b}\sum_{q=1,2}\big(e^{i\omega_q t} + e^{-i\omega_q t}\big),
+\end{align}
+在输出频率 \(\omega'\) 处的复振幅为
+\begin{equation}
+\tilde j^{(3)}_a(\omega') = -\frac{e^2}{2\hbar}\,\epsilon_{abc}\,E_{0,b}
+\sum_{\substack{\omega,q,s=\pm\\ \omega + s\omega_q = \omega'}}
+\int [dk]\, \Omega_c(\mathbf{k})\, \hat f_2(\omega;\mathbf{k}).
+\label{eq:j3_amplitude}
+\end{equation}
+
+所有非零的 \(\hat f_2(\omega)\) 均正比于 \(\mathcal{L}f_0 = (\mathbf{E}_0\!\cdot\!\nabla)^2 f_0\)。
+两次分部积分后，
+\begin{equation}
+\int [dk]\, \Omega_c\, (\mathbf{E}_0\!\cdot\!\nabla)^2 f_0 = \int [dk]\, f_0\, (\mathbf{E}_0\!\cdot\!\nabla)^2\Omega_c
+= E_{0,d}E_{0,e}\, Q_{cde},
+\end{equation}
+其中定义了 **贝里曲率四极子** 张量
+\begin{equation}
+Q_{cde} \equiv \int [dk]\, f_0(\mathbf{k})\, \partial_d\partial_e\Omega_c(\mathbf{k}).
+\label{eq:quadrupole_def}
+\end{equation}
+\(Q_{cde}\) 是一个三阶赝张量，对后两个指标对称，在时间反演对称性下为奇。
+它推广了 \eqref{eq:dipole_def} 引入的偶极子 \(D_{cd}\)。
+
+因此，\eqref{eq:j3_amplitude} 中的积分变为
+\begin{equation}
+\int [dk]\, \Omega_c\,\hat f_2(\omega) = \hat C(\omega)\, E_{0,d}E_{0,e}\, Q_{cde},
+\end{equation}
+其中 \(\hat C(\omega)\) 汇集了 \eqref{eq:f2_2w}--\eqref{eq:f2_dc} 中 \(\hat f_2(\omega)\) 的系数。利用 \eqref{eq:zeta_def} 的 \(\zeta(\omega)\)，得到以下简洁形式：
+\begin{align}
+\hat C(2\omega_p) &= \frac{e^2}{4\hbar^2}\,\tau^2\,\zeta_p\,\zeta(2\omega_p), \label{eq:C_2w}\\
+\hat C(\omega_1+\omega_2) &= \frac{e^2}{4\hbar^2}\,\tau^2\,(\zeta_1+\zeta_2)\,\zeta(\omega_1+\omega_2), \label{eq:C_sum}\\
+\hat C(\omega_1-\omega_2) &= \frac{e^2}{4\hbar^2}\,\tau^2\,(\zeta_1+\bar\zeta_2)\,\zeta(\omega_1-\omega_2), \label{eq:C_diff}\\
+\hat C(0) &= \frac{e^2}{4\hbar^2}\,\tau^2\,(\zeta_1+\bar\zeta_1+\zeta_2+\bar\zeta_2). \label{eq:C_0}
+\end{align}
+对负 \(\omega\)，有 \(\hat C(-\omega) = \hat C(\omega)^*\)。
+
+代入 \eqref{eq:j3_amplitude} 给出一般形式
+\begin{equation}
+\tilde j^{(3)}_a(\omega') = -\frac{e^2}{2\hbar}\,\epsilon_{abc}\,E_{0,b}E_{0,d}E_{0,e}\,Q_{cde}\,
+\sum_{\substack{\omega,q,s\\ \omega+s\omega_q=\omega'}} \hat C(\omega).
+\label{eq:j3_form}
+\end{equation}
+为紧凑地写出最终表达式，引入无量纲因子
+\begin{equation}
+{ \mathcal{K}(\omega') = \frac{4\hbar^2}{e^2\tau}\,
+\sum_{\substack{\omega,q,s\\ \omega+s\omega_q=\omega'}} \hat C(\omega) },
+\label{eq:K_def}
+\end{equation}
+于是电流振幅可写为
+\begin{equation}
+\tilde j^{(3)}_a(\omega') = -\frac{e^4}{8\hbar^3}\,\tau\,
+\epsilon_{abc}\,E_{0,b}E_{0,d}E_{0,e}\,Q_{cde}\; \mathcal{K}(\omega').
+\label{eq:j3_final}
+\end{equation}
+由于每个 \(\hat C\) 包含 \(\tau^2\)，因子 \(\mathcal{K}(\omega')\) 正比于 \(\tau\)，使得 \(\tilde j^{(3)} \propto \tau^2\)，与预期一致。
+
+下面列出三阶响应中出现的所有不同正频率分量 \(\omega'>0\)。
+对每个分量，我们识别出贡献的通道 \((\omega,s,q)\)，并用 \eqref{eq:K_def} 计算 \(\mathcal{K}(\omega')\)。
+
+\subsection{三次谐波 \(3\omega_1\) 和 \(3\omega_2\)}
+到达 \(3\omega_1\) 的唯一通道是 \(\omega = 2\omega_1\)，\(s=+\)，\(q=1\)：
+\begin{equation}
+\mathcal{K}(3\omega_1) = \frac{4\hbar^2}{e^2\tau}\,\hat C(2\omega_1)
+= \tau\,\zeta_1\,\zeta(2\omega_1).
+\label{eq:K_3w1}
+\end{equation}
+类似地，
+\begin{equation}
+\mathcal{K}(3\omega_2) = \tau\,\zeta_2\,\zeta(2\omega_2).
+\label{eq:K_3w2}
+\end{equation}
+
+\subsection{和型频率 \(2\omega_1+\omega_2\) 和 \(\omega_1+2\omega_2\)}
+对 \(\omega' = 2\omega_1+\omega_2\)，有贡献的过程为 \((\omega=\omega_1+\omega_2,\,s=+,\,q=1)\) 和 \((\omega=2\omega_1,\,s=+,\,q=2)\)：
+\begin{equation}
+\mathcal{K}(2\omega_1+\omega_2) = \tau\Big[ (\zeta_1+\zeta_2)\zeta(\omega_1+\omega_2) + \zeta_1\zeta(2\omega_1) \Big].
+\label{eq:K_2w1+w2}
+\end{equation}
+对 \(\omega_1+2\omega_2\)：
+\begin{equation}
+\mathcal{K}(\omega_1+2\omega_2) = \tau\Big[ (\zeta_1+\zeta_2)\zeta(\omega_1+\omega_2) + \zeta_2\zeta(2\omega_2) \Big].
+\label{eq:K_w1+2w2}
+\end{equation}
+
+\subsection{差型频率 \(2\omega_1-\omega_2\) 和 \(2\omega_2-\omega_1\)}
+假设 \(\omega_1>\omega_2\)，频率 \(2\omega_1-\omega_2\) 来自 \((\omega=\omega_1-\omega_2,\,s=+,\,q=1)\) 和 \((\omega=2\omega_1,\,s=-,\,q=2)\)：
+\begin{equation}
+\mathcal{K}(2\omega_1-\omega_2) = \tau\Big[ (\zeta_1+\bar\zeta_2)\zeta(\omega_1-\omega_2) + \zeta_1\zeta(2\omega_1) \Big].
+\label{eq:K_2w1-w2}
+\end{equation}
+若 \(\omega_2>\omega_1\)，则有
+\begin{equation}
+\mathcal{K}(2\omega_2-\omega_1) = \tau\Big[ (\zeta_2+\bar\zeta_1)\zeta(\omega_2-\omega_1) + \zeta_2\zeta(2\omega_2) \Big].
+\label{eq:K_2w2-w1}
+\end{equation}
+
+\subsection{基频 \(\omega_1\) 和 \(\omega_2\)}
+三阶电流在基频处也有贡献。
+对 \(\omega'=\omega_1\)，有贡献的通道为：
+\begin{itemize}
+\item \(\omega=0\) 且 \(s=+,\;q=1\);
+\item \(\omega=\omega_1+\omega_2\) 且 \(s=-,\;q=2\);
+\item \(\omega=2\omega_1\) 且 \(s=-,\;q=1\);
+\item \(\omega=\omega_1-\omega_2\) 且 \(s=+,\;q=2\) （若 \(\omega_1>\omega_2\)）。
+\end{itemize}
+用相应的 \(\hat C\) 按 \eqref{eq:K_def} 计算，得
+\begin{align}
+\mathcal{K}(\omega_1) &=
+\underbrace{\tau\big(\zeta_1+\bar\zeta_1+\zeta_2+\bar\zeta_2\big)}_{\omega=0}
++ \underbrace{\tau(\zeta_1+\zeta_2)\zeta(\omega_1+\omega_2)}_{\omega=\omega_1+\omega_2,\,s=-}
++ \underbrace{\tau\zeta_1\zeta(2\omega_1)}_{\omega=2\omega_1,\,s=-}
++ \underbrace{\tau(\zeta_1+\bar\zeta_2)\zeta(\omega_1-\omega_2)}_{\omega=\omega_1-\omega_2,\,s=+}.
+\label{eq:K_w1}
+\end{align}
+
+对 \(\omega'=\omega_2\)，有贡献的通道为：
+\begin{itemize}
+\item \(\omega=0\) 且 \(s=+,\;q=2\);
+\item \(\omega=\omega_1+\omega_2\) 且 \(s=-,\;q=1\);
+\item \(\omega=2\omega_2\) 且 \(s=-,\;q=2\);
+\item \(\omega=\omega_2-\omega_1\) （即 \(\omega_1-\omega_2\) 的负值）且 \(s=+,\;q=1\);
+因为 \(\hat C(\omega_2-\omega_1) = \hat C(\omega_1-\omega_2)^*\)，其相关因子为 \(\big(\bar\zeta_1+\zeta_2\big)\zeta(\omega_1-\omega_2)^*\)。
+\end{itemize}
+求和得
+\begin{align}
+\mathcal{K}(\omega_2) &=
+\underbrace{\tau\big(\zeta_1+\bar\zeta_1+\zeta_2+\bar\zeta_2\big)}_{\omega=0}
++ \underbrace{\tau(\zeta_1+\zeta_2)\zeta(\omega_1+\omega_2)}_{\omega=\omega_1+\omega_2,\,s=-}
++ \underbrace{\tau\zeta_2\zeta(2\omega_2)}_{\omega=2\omega_2,\,s=-}
++ \underbrace{\tau(\bar\zeta_1+\zeta_2)\zeta(\omega_1-\omega_2)^*}_{\omega=-(\omega_1-\omega_2),\,s=+}.
+\label{eq:K_w2}
+\end{align}
+
+方程 \eqref{eq:j3_final} 连同 \eqref{eq:K_3w1}--\eqref{eq:K_w2} 给出了双色驱动下由贝里曲率四极子引起的完整三阶反常霍尔电流。相应的非线性电导率张量 \(\sigma^{(3)}_{a;bde}(\omega)\) 可通过与 \eqref{eq:sigma_def} 对比读取。
+
+\subsection{三阶非线性电导率张量}
+
+频率为 \(\omega\) 的三阶反常霍尔电流由式 \eqref{eq:j3_final} 和 \eqref{eq:K_def} 给出：
+\begin{equation}
+\tilde j^{(3)}_a(\omega) = -\frac{e^4}{8\hbar^3}\,\tau\,
+\epsilon_{abc}\,E_{0,b}E_{0,d}E_{0,e}\,Q_{cde}\; \mathcal{K}(\omega).
+\label{eq:j3_final_sigma}
+\end{equation}
+与非线性电导率的定义 \eqref{eq:sigma_def}
+\[
+\tilde j^{(3)}_a(\omega) = \sigma^{(3)}_{a;bde}(\omega)\,E_{0,b}E_{0,d}E_{0,e}
+\]
+对比，并注意到 \(Q_{cde}\) 对 \(d,e\) 对称，可识别出
+\begin{equation}
+{\;
+\sigma^{(3)}_{a;bde}(\omega) = -\frac{e^4}{8\hbar^3}\,\tau\,
+\epsilon_{abc}\,Q_{cde}\; \mathcal{K}(\omega)\; }.
+\label{eq:sigma3_def}
+\end{equation}
+无量纲、含频因子 \(\mathcal{K}(\omega)\) 已在 \eqref{eq:K_3w1}--\eqref{eq:K_w2} 中确定。为了完整，这里列出所有不同正频率通道的显式表达式：
+
+\begin{align}
+\mathcal{K}(3\omega_p) &= \tau\,\zeta_p\,\zeta(2\omega_p), \qquad p=1,2, \label{eq:K3_3w}\\
+\mathcal{K}(2\omega_1+\omega_2) &= \tau\Big[ (\zeta_1+\zeta_2)\zeta(\omega_1+\omega_2) + \zeta_1\zeta(2\omega_1) \Big], \label{eq:K3_2w1pw2}\\
+\mathcal{K}(\omega_1+2\omega_2) &= \tau\Big[ (\zeta_1+\zeta_2)\zeta(\omega_1+\omega_2) + \zeta_2\zeta(2\omega_2) \Big], \label{eq:K3_w1p2w2}\\
+\mathcal{K}(2\omega_1-\omega_2) &= \tau\Big[ (\zeta_1+\bar\zeta_2)\zeta(\omega_1-\omega_2) + \zeta_1\zeta(2\omega_1) \Big], \quad (\omega_1>\omega_2) \label{eq:K3_2w1mw2}\\
+\mathcal{K}(2\omega_2-\omega_1) &= \tau\Big[ (\zeta_2+\bar\zeta_1)\zeta(\omega_2-\omega_1) + \zeta_2\zeta(2\omega_2) \Big], \label{eq:K3_2w2mw1}\\
+\mathcal{K}(\omega_p) &= \tau\Big[ \zeta_1+\bar\zeta_1+\zeta_2+\bar\zeta_2 + (\zeta_1+\zeta_2)\zeta(\omega_1+\omega_2) \notag\\
+&\qquad\qquad + \zeta_p\zeta(2\omega_p) + (\zeta_p+\bar\zeta_{3-p})\zeta(\omega_p-\omega_{3-p}) \Big], \quad p=1,2. \label{eq:K3_wp}
+\end{align}
+方程 \eqref{eq:sigma3_def} 与 \eqref{eq:K3_3w}--\eqref{eq:K3_wp} 一起给出了双色驱动下由贝里曲率四极子引起的完整三阶反常霍尔电导率张量。
+
+\subsection{低频极限}
+
+在低频极限 \(\omega_p\tau\ll 1\) 下，所有无量纲阻抗趋于 \(1\)，\(\zeta_p,\bar\zeta_p,\zeta(\omega)\to 1\)。  
+方程 \eqref{eq:K3_3w}--\eqref{eq:K3_wp} 简化为正比于 \(\tau\) 的简单实数：
+
+\begin{align*}
+\mathcal{K}(3\omega_p) &= \tau, \\
+\mathcal{K}(2\omega_1\pm\omega_2),\ \mathcal{K}(\omega_1\pm 2\omega_2) &= 3\tau, \\
+\mathcal{K}(\omega_p) &= 9\tau.
+\end{align*}
+
+因此相应的三阶霍尔电流振幅 \eqref{eq:j3_final_sigma} 的比例为
+\[
+\tilde j(3\omega_p) : \tilde j(2\omega_1\pm\omega_2\,\text{等}) : \tilde j(\omega_p) \;=\; 1 : 3 : 9 .
+\]
+这些是双边傅里叶系数（对正 \(\omega\)，它们乘以 \(e^{i\omega t}\)）。
+
+现在将这些比例与双色场立方的代数展开比较。利用基本三角恒等式，
+\begin{align}
+(\cos\omega_1 t+\cos\omega_2 t)^3 &=
+\tfrac94\cos\omega_1 t + \tfrac94\cos\omega_2 t \notag\\
+&\quad + \tfrac14\cos 3\omega_1 t + \tfrac14\cos 3\omega_2 t \\
+&\quad + \tfrac34\cos(2\omega_1+\omega_2)t + \tfrac34\cos(\omega_1+2\omega_2)t \notag\\
+&\quad + \tfrac34\cos(2\omega_1-\omega_2)t + \tfrac34\cos(2\omega_2-\omega_1)t . \notag
+\end{align}
+将余弦系数除以 \(2\)（对 \(\omega\neq0\)）即得 \((\cos\omega_1 t+\cos\omega_2 t)^3\) 的双边傅里叶系数：
+\[
+\text{三次谐波： } \tfrac18,\qquad
+\text{和/差频： } \tfrac38,\qquad
+\text{基频： } \tfrac98 .
+\]
+将这组系数乘以公因子 \(8\) 恰好重现由玻尔兹曼方程导出的比例 \(1:3:9\)。
+
+\section{组合电感与 BCQ 响应}
+
+外部驱动电流
+\[
+I_{\rm ext}(t)=I_0(\cos\omega_1 t+\cos\omega_2 t)
+\]
+只流在两个基频 \(\omega_1,\omega_2\) 处。  
+其复振幅为 \(\tilde I_{\rm ext}(\omega_1)=\tilde I_{\rm ext}(\omega_2)=I_0/2\)（采用双边系数约定），其余为零。
+
+BCQ 效应产生横向三阶霍尔电流，其复振幅正比于无量纲因子 \(\mathcal{K}(\omega)\)：
+\[
+\tilde I_H(\omega) \propto \mathcal{K}(\omega).
+\]
+该霍尔电流作为电流源流过测量回路，测量回路由电阻 \(R\) 和自感 \(L_s\) 串联组成。
+外部驱动回路通过互感 \(M\) 与测量回路耦合；因此在两个驱动频率处，测量回路中感应出电压 \(\,j\omega M\tilde I_{\rm ext}(\omega)\)。
+
+于是测量端的总复电压为
+\begin{align}
+\tilde V(\omega) &= \tilde I_H(\omega)\bigl(R + j\omega L_s\bigr) + j\omega M\,\tilde I_{\rm ext}(\omega) \notag\\
+&= \tilde I_H(\omega)\,R\Bigl[1 + j\omega\frac{L_s}{R} + j\omega\frac{M}{R}\frac{\tilde I_{\rm ext}(\omega)}{\tilde I_H(\omega)}\Bigr].
+\label{eq:Vgeneral}
+\end{align}
+对除 \(\omega_1,\omega_2\) 外的混频频率，有 \(\tilde I_{\rm ext}(\omega)=0\)，互感项消失。
+
+对基频 \(\omega=\omega_1,\omega_2\)，驱动电流和 BCQ 霍尔电流均不为零，在给定驱动振幅下，它们的比值为一个固定的复数
+\[
+\frac{\tilde I_{\rm ext}(\omega_p)}{\tilde I_H(\omega_p)} \equiv \beta_p,\qquad p=1,2.
+\]
+在低频极限 \(\omega_p\tau\ll1\) 下，BCQ 响应 \(\mathcal{K}(\omega_p)\) 变为实数，因此 \(\beta_p\) 也近似为实数。
+在此条件下，感性贡献可合并为一个等效电感
+\[
+L_{\rm eff}(\omega_p) = L_s + M\beta_p \quad (\text{实数}),
+\]
+电压振幅简化为
+\[
+\lvert\tilde V(\omega_p)\rvert \propto \lvert\mathcal{K}(\omega_p)\rvert\;
+\sqrt{1+\bigl(\omega_p L_{\rm eff}(\omega_p)/R\bigr)^2}.
+\]
+
+对所有高阶混频频率，\(L_{\rm eff}=L_s\)；而对基频，由于互感项的存在，\(L_{\rm eff}\) 取不同值。
+将频率写为 Hz 单位 \(f=\omega/2\pi\)，得到紧凑形式
+\[
+{\;
+V_{\rm thy}(f) \propto \lvert\mathcal{K}(2\pi f)\rvert\;\sqrt{1+(r_i f)^2}\;},
+\qquad
+r_i \equiv \frac{2\pi L_{\rm eff}}{R},
+\]
+其中对 \(f=f_1,f_2\)，\(r_i = 2\pi(L_s+M\beta)/R\)；对所有其他混频频率，\(r_i = 2\pi L_s/R\)。
+此公式用于拟合波混频谱；互感仅通过参数 \(\beta\) 影响基频峰，该参数由外部电流与霍尔电流的比值决定。

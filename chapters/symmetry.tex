@@ -1,0 +1,404 @@
+% !TeX root = ../main.tex
+
+\chapter{霍尔效应的对称性分析：CrSb中各阶电导率}
+
+\section{引言}
+本章的目标是从微观电导表达式出发，严格推导在具有磁点群 $6'/m'mm'$ 的共线交变磁体 CrSb 中的
+各阶电导率的对称性约束，为理解实验中观察到的电导行为提供理论基础。
+在本文约定的电导率张量表示中，统一将电流方向指标放在最后一位：
+一阶电导记为 $\sigma_{a;d}^{(1)}$（$a$ 为电场方向，$d$ 为电流方向），
+二阶记为 $\sigma_{ab;c}^{(2)}$，三阶记为 $\sigma_{abc;d}^{(3)}$。
+这一约定使各阶张量的指标结构更为清晰。
+
+根据\ref{tab:3d}，我们已经知道CrSb的最低阶非平庸效应为三阶，但此表只分析了贝利曲率多极子的贡献，
+没有考虑其他量子几何的贡献，因此下面我们进行完整的分析。
+
+\section{CrSb的晶体与磁结构及对称性}
+CrSb 的空间群为 $P6_3/mmc$，其反铁磁序为A型共线结构，磁空间群为 $P6_3'/m'm'c$，对应的磁点群（MPG）为
+\[
+\mathcal{G} = 6'/m'mm' .
+\]
+该点群的生成元可取为
+\[
+\{E,\, C_{3z},\, M_y,\, P,\, M_x\mathcal{T}\} .
+\]
+其中 $P$ 为空间反演，$M_y$ 为垂直于 $y$ 轴的镜面，$M_x\mathcal{T}$ 为垂直于 $x$ 轴的镜面与时间反演的组合，$C_{3z}$ 为绕 $z$ 轴的三重旋转。晶体主轴坐标系选取为
+\[
+x\parallel[2\bar{1}\bar{1}0],\quad y\parallel[01\bar{1}0],\quad z\parallel[0001].
+\]
+
+根据上一节的电导率公式和表~\ref{tab:sym_trans}中各物理量在上述对称操作下的变换性质，我们将推导各阶电导率的对称性约束。
+
+\section{一阶电导张量的对称性约束}
+
+\subsection{镜面 \(M_y\) 的变换规则。}
+镜面 \(M_y\) 在直角坐标系中的作用为
+\[
+M_y: \; (x, y, z) \mapsto (x, -y, z), \qquad 
+M_y: \; \mathbf{k} = (k_x, k_y, k_z) \mapsto (k_x, -k_y, k_z).
+\]
+因为 \(M_y\) 是空间变换，且行列式为 \(-1\)，它不能用一个真旋转矩阵表示。但我们可以将其写成空间反演与一个二重旋转的组合：\(M_y = P \, C_{2y}\)，其中 \(C_{2y}\) 是绕 \(y\) 轴的 \(180^\circ\) 旋转（\(x\to -x,\, y\to y,\, z\to -z\)）。利用表~\ref{tab:basic_trans} 中 \(P\) 和真旋转 \(C_{2y}\) 的规则，可立即得到 \(M_y\) 对任意场量的作用。
+
+以极矢量 \(\partial_a\) 为例。先作 \(C_{2y}\)，再作 \(P\)：
+\[
+\partial_{a} \xrightarrow{C_{2y}} \sum_{a'} (C_{2y})_{a}^{a'} \partial_{a'} \big|_{C_{2y}^{-1}\mathbf{k}}
+\xrightarrow{P} -\sum_{a'} (C_{2y})_{a}^{a'} \partial_{a'} \big|_{-C_{2y}^{-1}\mathbf{k}} .
+\]
+由于 \(-C_{2y}^{-1}\mathbf{k} = M_y^{-1}\mathbf{k}\)，且 \(P\) 下自变量变为负，组合后整体效果为
+\[
+M_y: \quad \partial'_{a} = -\sum_{a'} (C_{2y})_{a}^{a'} \partial_{a'} \big|_{M_y^{-1}\mathbf{k}} .
+\]
+将 \(C_{2y}\) 的矩阵 \(\operatorname{diag}(-1,1,-1)\) 代入，即得：
+\[
+\partial_x \to \partial_x, \quad \partial_y \to -\partial_y, \quad \partial_z \to \partial_z \quad (\text{自变量 } \mathbf{k}\to M_y^{-1}\mathbf{k}).
+\]
+类似可得贝里曲率和轴矢量的变换。因 \(M_y = P C_{2y}\)，且 \(\Omega^{ab}\) 和 \(G^{ab}\) 在 \(P\) 下均不变，它们的行为仅由 \(C_{2y}\) 决定。例如对轴矢量 \(\Omega^c\)，\(C_{2y}\) 的作用与对极矢量一致，故
+\[
+\Omega_x \to -\Omega_x,\quad \Omega_y \to \Omega_y,\quad \Omega_z \to -\Omega_z .
+\]
+自变量同样变为 \(M_y^{-1}\mathbf{k}\)。
+
+\subsection{组合操作 \(M_x\mathcal{T}\) 的变换规则。}
+\(M_x\) 是垂直于 \(x\) 轴的镜面：\((x,y,z)\mapsto (-x,y,z)\)。时间反演 \(T\) 将 \(\mathbf{k}\to -\mathbf{k}\)，且使 \(\partial_a\) 和 \(\Omega^{ab}\) 变号。组合后，\(M_x\mathcal{T}\) 对 \(\mathbf{k}\) 的作用为
+\[
+\mathbf{k} \mapsto M_x(-\mathbf{k}) = (-(-k_x), -k_y, -k_z) = (k_x, -k_y, -k_z).
+\]
+对 \(\partial_a\)，先由 \(T\) 得到 \(-\partial_a|_{-\mathbf{k}}\)，再由 \(M_x\) 作空间反射，最终得到
+\[
+\partial_x \to \partial_x,\quad \partial_y \to -\partial_y,\quad \partial_z \to -\partial_z \quad (\text{自变量 } \mathbf{k}\to (k_x,-k_y,-k_z)).
+\]
+对轴矢量，\(T\) 给出额外负号，\(M_x\) 使其平行于镜面的分量 \((y,z)\) 变号，综合得
+\[
+\Omega_x \to -\Omega_x,\quad \Omega_y \to \Omega_y,\quad \Omega_z \to \Omega_z .
+\]
+
+\subsection{Drude项的非对角元}
+一阶 Drude 电导正比于 \(\int f_n^0\,\partial_a\partial_d\varepsilon_n\)。我们要证明当 \(a\neq d\) 时该积分为零。
+
+\(M_y\) 对称性要求
+\[
+\varepsilon(k_x,k_y,k_z) = \varepsilon(k_x,-k_y,k_z).
+\]
+对 \(y\) 求导得 \(\partial_y\varepsilon(k_x,-k_y,k_z) = -\partial_y\varepsilon(k_x,k_y,k_z)\)。再对 \(x\) 或 \(z\) 求导：
+\[
+\partial_x\partial_y\varepsilon(k_x,k_y,k_z) = -\partial_x\partial_y\varepsilon(k_x,-k_y,k_z),
+\quad
+\partial_y\partial_z\varepsilon(k_x,k_y,k_z) = -\partial_y\partial_z\varepsilon(k_x,-k_y,k_z).
+\]
+被积函数是 \(k_y\) 的奇函数，布里渊区关于 \(k_y=0\) 对称，积分后必为零。故
+\[
+\sigma_{x;y}^{\mathrm{Drude}} = \sigma_{y;x}^{\mathrm{Drude}} = \sigma_{y;z}^{\mathrm{Drude}} = \sigma_{z;y}^{\mathrm{Drude}} = 0.
+\]
+
+其次，\(M_x\mathcal{T}\) 对称性给出
+\[
+\varepsilon(k_x,k_y,k_z) = \varepsilon(k_x,-k_y,-k_z).
+\]
+由此
+\[
+\partial_x\partial_z\varepsilon(k_x,k_y,k_z) = -\partial_x\partial_z\varepsilon(k_x,-k_y,-k_z),
+\]
+被积函数是 \((k_y,k_z)\) 的奇函数，积分为零，于是
+\[
+\sigma_{x;z}^{\mathrm{Drude}} = \sigma_{z;x}^{\mathrm{Drude}} = 0.
+\]
+
+至此，所有非对角 Drude 电导消失。在主轴坐标系中，一阶 Drude 张量只有对角元：
+\[
+\sigma^{(1)}_{\mathrm{Drude}} = \begin{pmatrix}
+\sigma_{x;x} & 0 & 0 \\
+0 & \sigma_{y;y} & 0 \\
+0 & 0 & \sigma_{z;z}
+\end{pmatrix}.
+\]
+
+\subsection{对角元的关系：\(C_{3z}\) 对称性}
+绕 \(z\) 轴的三重旋转 \(C_{3z}\) 的旋转矩阵为
+\[
+R_{3z} = \begin{pmatrix}
+-1/2 & \sqrt{3}/2 & 0 \\
+-\sqrt{3}/2 & -1/2 & 0 \\
+0 & 0 & 1
+\end{pmatrix}.
+\]
+\(C_{3z}\) 对称性要求 \(\varepsilon(\mathbf{k}) = \varepsilon(R_{3z}^{-1}\mathbf{k})\)。对 \(\partial_a\partial_d\varepsilon\) 作积分变量代换 \(\mathbf{k} \to R_{3z}\mathbf{k}\)，并利用 \(R_{3z}\) 为正交矩阵（等体积映射），可得
+\[
+\int \partial_a\partial_d\varepsilon(\mathbf{k}) = \int \sum_{a'd'} (R_{3z})_a^{a'} (R_{3z})_d^{d'} \,\partial_{a'}\partial_{d'}\varepsilon(\mathbf{k}') \, d^3k'.
+\]
+右侧系数的具体值可以由 \(R_{3z}\) 矩阵算出。将这一关系应用于 \(\sigma_{x;x}\) 和 \(\sigma_{y;y}\)：
+\[
+\begin{aligned}
+\sigma_{x;x} &\propto \int \partial_x^2\varepsilon(\mathbf{k}), \\
+\sigma_{y;y} &\propto \int \partial_y^2\varepsilon(\mathbf{k}) .
+\end{aligned}
+\]
+用 \(C_{3z}\) 变换可得
+\[
+\int \partial_x^2\varepsilon(\mathbf{k}) = \int \Bigl[(-\tfrac12\partial_{x'} + \tfrac{\sqrt3}{2}\partial_{y'})^2 \varepsilon\Bigr](\mathbf{k}'),
+\]
+\[
+\int \partial_y^2\varepsilon(\mathbf{k}) = \int \Bigl[(-\tfrac{\sqrt3}{2}\partial_{x'} - \tfrac12\partial_{y'})^2 \varepsilon\Bigr](\mathbf{k}').
+\]
+将平方展开，并注意已证明的非对角元 \(\int \partial_x\partial_y\varepsilon = 0\)，直接得到
+\[
+\int \partial_x^2\varepsilon = \int (\tfrac14 \partial_x^2 + \tfrac34 \partial_y^2)\varepsilon,
+\quad
+\int \partial_y^2\varepsilon = \int (\tfrac34 \partial_x^2 + \tfrac14 \partial_y^2)\varepsilon .
+\]
+两式相减得 \(\int \partial_x^2\varepsilon = \int \partial_y^2\varepsilon\)，因此
+\[
+{\sigma_{x;x} = \sigma_{y;y}} .
+\]
+
+\subsection{贝里曲率单极矩（反常霍尔电导）的消失}
+反常霍尔电导正比于 \(\int f_n^0\,\Omega_n^{ad}\)，利用轴矢量 \(\Omega_\alpha\) 表述后，问题化为证明 \(\int \Omega_\alpha = 0\)。
+
+\(M_y\) 对称性下，由前文推导的变换规则
+\[
+\Omega_x(k_x,k_y,k_z) = -\Omega_x(k_x,-k_y,k_z),\quad
+\Omega_z(k_x,k_y,k_z) = -\Omega_z(k_x,-k_y,k_z).
+\]
+这直接导致
+\[
+\int \Omega_x = -\int \Omega_x = 0,\qquad \int \Omega_z = -\int \Omega_z = 0 .
+\]
+
+对于剩余分量 \(\Omega_y\)，使用 \(C_{3z}\) 对称性可得
+\[
+\Omega_y(\mathbf{k}) = -\frac{\sqrt3}{2}\Omega_x(C_{3z}^{-1}\mathbf{k}) - \frac12\Omega_y(C_{3z}^{-1}\mathbf{k}).
+\]
+对全布里渊区积分，且积分测度在 \(C_{3z}\) 下不变：
+\[
+\int \Omega_y(\mathbf{k}) = -\frac{\sqrt3}{2}\int \Omega_x - \frac12\int \Omega_y .
+\]
+由于已经证明了 \(\int \Omega_x = 0\)，上式给出 \(\int \Omega_y = -\frac12\int \Omega_y\)，从而
+\[
+\int \Omega_y = 0 .
+\]
+
+因此，所有方向贝里曲率的积分为零，一阶反常霍尔电导完全消失：
+\[
+\sigma_{a;d}^{\mathrm{BCM}} = 0 \quad (\forall\,a,d).
+\]
+
+\subsection{一阶电导张量的最终形式}
+综合上述结果，一阶电导张量只有 Drude 对角元，且满足 \(\sigma_{x;x}=\sigma_{y;y}\)，即
+\[
+{\sigma^{(1)} = \begin{pmatrix}
+\sigma_{x;x}^{(1)} & 0 & 0 \\
+0 & \sigma_{x;x}^{(1)} & 0 \\
+0 & 0 & \sigma_{z;z}^{(1)}
+\end{pmatrix}} .
+\]
+这就是 CrSb 在磁点群 \(6'/m'mm'\) 下的一阶线性电导张量。实验测得的纵向电阻来自非零的 \(\sigma_{x;x}^{(1)}\) 和 \(\sigma_{z;z}^{(1)}\)，而线性霍尔效应则被对称性严格禁止。
+
+\section{二阶电导张量的完全消失}
+二阶电导包含三项：二阶Drude项 $\sigma_{ab;c}^{\mathrm{Drude}(2)}$、贝里曲率偶极矩 $\sigma_{ab;c}^{\mathrm{BCD}}$ 和量子度规偶极矩 $\sigma_{ab;c}^{\mathrm{QMD}}$。我们将证明，空间反演对称性 $P$ 单独即可迫使这三项全部为零，无需借助其他对称操作。
+
+空间反演 $P$ 对动量空间量的作用为（见表~\ref{tab:sym_trans}）
+\[
+\mathbf{k} \to -\mathbf{k},\quad \partial_\alpha \to -\partial_\alpha,\quad
+\Omega^{ab}(-\mathbf{k}) = \Omega^{ab}(\mathbf{k}),\quad
+G^{ab}(-\mathbf{k}) = G^{ab}(\mathbf{k}) .
+\]
+
+\subsection{二阶Drude项}
+被积函数为 $\partial_a\partial_b\partial_c\varepsilon_n$。在 $P$ 下，三个偏导数各贡献一个负号，共 $(-1)^3=-1$，能带为偶函数。故被积函数是 $\mathbf{k}$ 的奇函数。布里渊区全空间积分为零：
+\[
+\sigma_{ab;c}^{\mathrm{Drude}(2)} \propto \int (\text{奇函数}) = 0 .
+\]
+
+\subsection{BCD项}
+被积函数为 $\partial_a\Omega^{bc}$。$P$ 下 $\partial_a\to -\partial_a$，$\Omega^{bc}$ 不变（偶函数），故整体为奇函数，积分为零：
+\[
+\sigma_{ab;c}^{\mathrm{BCD}} \propto \int (\text{奇函数}) = 0 .
+\]
+
+\subsection{QMD项}
+被积函数为 $\partial_a G^{bc}$。同理，$G^{bc}$ 在 $P$ 下为偶函数，$\partial_a$ 贡献一个负号，整体为奇函数，积分亦为零：
+\[
+\sigma_{ab;c}^{\mathrm{QMD}} \propto \int (\text{奇函数}) = 0 .
+\]
+
+三项贡献均因被积函数在动量空间的反演奇对称而严格消失。因此，整个二阶电导张量恒为零：
+\[
+{\sigma_{ab;c}^{(2)} \equiv 0,\qquad \forall\, a,b,c.}
+\]
+
+\section{三阶电导率的对称性约束}
+
+三阶电导率由四项物理来源组成：三阶 Drude 项（\(\propto\tau^{3}\)）、贝里曲率四极矩 BCQ（\(\propto\tau^{2}\)）、量子度规四极矩 QMQ（\(\propto\tau\)）和额外带间贡献 AIC（\(\propto\tau^{0}\)）。其中 AIC 的对称性与 BCQ 完全相同，仅独立参数取值不同。
+
+以下各基本四极矩及其电导率分量的对称性约束均通过 Python 符号计算程序自动求解线性方程组得到。由于涉及高达四阶张量的指标全排列，手工推导极为繁琐且易出错，此处仅列出最终结果，省略中间计算步骤。
+
+\subsection{Drude 四极矩及电导率}
+
+基本四极矩 \(\Gamma^{abcd}=\int f_0\,\partial_{a}\partial_{b}\partial_{c}\partial_{d}\varepsilon\) 对四个指标完全对称。在 \(6'/m'mm'\) 下存在三个独立参数 \(\Gamma_{0},\Gamma_{1},\Gamma_{2}\)，非零分量满足
+\begin{equation}
+\begin{aligned}
+  \Gamma^{xxxx} &= \Gamma^{yyyy} = \Gamma_{0},\\
+  \Gamma^{xxyy} &= \Gamma^{xyxy} = \Gamma^{xyyx} = \Gamma^{yxxy}
+                = \Gamma^{yxyx} = \Gamma^{yyxx} = \frac{\Gamma_{0}}{3},\\
+  \Gamma^{xxzz} &= \Gamma^{xzxz} = \Gamma^{xzzx}
+                = \Gamma^{yyzz} = \Gamma^{yzyz} = \Gamma^{yzzy}
+                = \Gamma^{zxxz} = \Gamma^{zxzx}  \\
+               &\qquad = \Gamma^{zyyz} = \Gamma^{zyzy}
+                = \Gamma^{zzxx} = \Gamma^{zzyy} = \Gamma_{1},\\
+  \Gamma^{zzzz} &= \Gamma_{2}.
+\end{aligned}
+\end{equation}
+三阶 Drude 电导率正比于该四极矩本身（全对称性保证指标顺序可任意排列）：
+\begin{equation}
+  \sigma^{(3)}_{\mathrm{Drude}, abc;d} \propto \Gamma^{abcd},
+\end{equation}
+故其非零分量关系与上述完全相同，只需将下标按 \((a,b,c,d)\) 读出即可。
+
+\subsection{贝里曲率四极矩及电导率}
+
+基本四极矩 \(Q^{abcd} = \int f_0\,\partial_{a}\partial_{b}\Omega^{cd}\) 具有前两指标对称、后两指标反对称的内禀对称性。对称性分析给出仅一个独立参数 \(Q_{0}\)，非零分量为
+\begin{equation}
+\begin{aligned}
+  Q^{xxzx} &= Q^{xyyz} = Q^{yxyz} = Q^{yyxz} = Q_{0},\\
+  Q^{xxxz} &= Q^{xyzy} = Q^{yxzy} = Q^{yyzx} = -Q_{0}.
+\end{aligned}
+\end{equation}
+电导率与四极矩的关系为
+\begin{equation}
+  \sigma^{(3)}_{\mathrm{BCQ}, abc;d} \propto -(Q_{abcd}+Q_{bcad}+Q_{cabd}),
+\end{equation}
+代入组合后得到高度各向异性的横向响应：
+\begin{equation}
+\begin{aligned}
+  \sigma^{(3)}_{\mathrm{BCQ}, xxx;z} &\propto -3\,Q_{0},\\
+  \sigma^{(3)}_{\mathrm{BCQ}, xxz;x}
+  = \sigma^{(3)}_{\mathrm{BCQ}, xzx;x}
+  = \sigma^{(3)}_{\mathrm{BCQ}, zxx;x} &\propto Q_{0},\\
+  \sigma^{(3)}_{\mathrm{BCQ}, xyy;z}
+  = \sigma^{(3)}_{\mathrm{BCQ}, yxy;z}
+  = \sigma^{(3)}_{\mathrm{BCQ}, yyx;z} &\propto 3\,Q_{0},\\
+  \sigma^{(3)}_{\mathrm{BCQ}, xyz;y}
+  = \sigma^{(3)}_{\mathrm{BCQ}, xzy;y}
+  = \sigma^{(3)}_{\mathrm{BCQ}, yxz;y}
+  = \sigma^{(3)}_{\mathrm{BCQ}, yyz;x}
+  = \sigma^{(3)}_{\mathrm{BCQ}, yzx;y} & \\
+  = \sigma^{(3)}_{\mathrm{BCQ}, xyz;y}
+  = \sigma^{(3)}_{\mathrm{BCQ}, yzx;y}
+  = \sigma^{(3)}_{\mathrm{BCQ}, zxy;y}
+  = \sigma^{(3)}_{\mathrm{BCQ}, zyx;y} &\propto -\,Q_{0}.
+\end{aligned}
+\end{equation}
+可见，仅当驱动电场沿 \(x\) 方向时，可在 \(z\) 方向获得非零的三阶霍尔电压；驱动电场沿 \(y\) 或 \(z\) 时横向信号消失。
+
+\subsection{量子度规四极矩及电导率}
+
+基本四极矩 \(g^{abcd} = \int f_0\,\partial_{a}\partial_{b}G^{cd}\) 满足前两指标对称、后两指标对称。在磁点群 \(6'/m'mm'\) 下存在六个独立参数 \(g_{0},g_{1},g_{2},g_{3},g_{4},g_{5}\)，非零分量关系为
+\begin{equation}
+\begin{aligned}
+  g^{xxxx} &= g^{yyyy} = g_{1},\\
+  g^{xxyy} &= g^{yyxx} = g_{0},\\
+  g^{xyxy} &= g^{xyyx} = g^{yxxy} = g^{yxyx} = -\frac{g_{0}}{2} + \frac{g_{1}}{2},\\
+  g^{xxzz} &= g^{yyzz} = g_{2},\\
+  g^{xzxz} &= g^{xzzx} = g^{yzyz} = g^{yzzy}
+            = g^{zxxz} = g^{zxzx} = g^{zyyz} = g^{zyzy} = g_{3},\\
+  g^{zzxx} &= g^{zzyy} = g_{4},\\
+  g^{zzzz} &= g_{5}.
+\end{aligned}
+\end{equation}
+电导率与四极矩的关系为
+\begin{equation}
+  \sigma^{(3)}_{\mathrm{QMQ}, abc;d} \propto
+    \frac{1}{3}\Bigl[\,2(g_{adbc}+g_{bdac}+g_{cdab})
+                 - (g_{acbd}+g_{bcad}+g_{abcd})\Bigr],
+\end{equation}
+代入后可得
+\begin{equation}
+\begin{aligned}
+  \sigma^{(3)}_{\mathrm{QMQ}, xxx;x}
+  = \sigma^{(3)}_{\mathrm{QMQ}, yyy;y} &\propto 3\,g_{1},\\[2pt]
+  \sigma^{(3)}_{\mathrm{QMQ}, xxy;y}
+  = \sigma^{(3)}_{\mathrm{QMQ}, xyy;x}
+  = \sigma^{(3)}_{\mathrm{QMQ}, yxx;y}
+  = \sigma^{(3)}_{\mathrm{QMQ}, yyx;x}
+  = \sigma^{(3)}_{\mathrm{QMQ}, xyx;y}
+  = \sigma^{(3)}_{\mathrm{QMQ}, yxy;x} &\propto g_{1},\\[2pt]
+  \sigma^{(3)}_{\mathrm{QMQ}, xxz;z}
+  = \sigma^{(3)}_{\mathrm{QMQ}, xzx;z}
+  = \sigma^{(3)}_{\mathrm{QMQ}, yyz;z}
+  = \sigma^{(3)}_{\mathrm{QMQ}, yzy;z}
+  = \sigma^{(3)}_{\mathrm{QMQ}, zxx;z}
+  = \sigma^{(3)}_{\mathrm{QMQ}, zyy;z}
+  &\propto -\,g_{2} + 2\,g_{3} + 2\,g_{4},\\[2pt]
+  \sigma^{(3)}_{\mathrm{QMQ}, xzz;x}
+  = \sigma^{(3)}_{\mathrm{QMQ}, yzz;y}
+  = \sigma^{(3)}_{\mathrm{QMQ}, zxz;x}
+  = \sigma^{(3)}_{\mathrm{QMQ}, zyz;y}
+  = \sigma^{(3)}_{\mathrm{QMQ}, zzx;x}
+  = \sigma^{(3)}_{\mathrm{QMQ}, zzy;y}
+  &\propto 2\,g_{2} + 2\,g_{3} - g_{4},\\[2pt]
+  \sigma^{(3)}_{\mathrm{QMQ}, zzz;z} &\propto 3\,g_{5}.
+\end{aligned}
+\end{equation}
+QMQ 贡献可同时产生纵向和横向三阶信号，且其各向异性弱于 BCQ。
+
+\subsection{额外带间贡献 AIC}
+
+AIC 基本张量 \(R^{abcd} = \int f_0\,\frac{2}{3\varepsilon_{n\bar{n}}}\,G^{ab}\Omega^{cd}\) 具有与 BCQ 完全相同的前对称、后反对称结构，且在相同对称操作下变换。因此其非零分量的形式与 BCQ 一致，仅独立参数不同（记为 \(R_{0}\)）。电导率组合公式也与 BCQ 相同：
+\begin{equation}
+  \sigma^{(3)}_{\mathrm{AIC}, abc;d} \propto -(R_{abcd}+R_{bcad}+R_{cabd}),
+\end{equation}
+其表达式可由 \(\sigma^{(3)}_{\mathrm{BCQ}}\) 的结果直接替换 \(Q_{0}\to R_{0}\) 得到。
+
+以上结果完整给出了 CrSb 在磁点群 \(6'/m'mm'\) 下所有三阶电导率张量的对称性允许形式。对于一阶和二阶电导率，本文的程序同样进行了分析（一阶 Drude 存在两个独立参数，一阶 BCM 及全部二阶响应均为零），此处不再赘述。这些结论为分析实验中的线性电阻、非线性霍尔响应以及区分不同物理机制提供了严格的理论基础。
+
+\section{各阶电导率的对称性允许分量汇总}
+
+为便于与后续实验结果对比，本节将上述分析汇总为表格，并逐一解释各项的物理含义。实验观测验证将在下一节中另行讨论。
+
+\subsection{电导率张量的指标约定与测量配置}
+实验中通过施加沿某一晶轴的交流电流（相当于施加同方向的电场），并在相同或垂直方向上测量电压，即可分别对应纵向（电流与电压同向）和横向（电流与电压垂直）的电导率分量。常用的三种器件取向为：
+\begin{itemize}
+\item \(XZ\) 器件：电流沿 \(x\)，在 \(z\) 方向测量横向电压，
+  对应横向响应 \(\sigma^{(1)}_{x;z}\)、\(\sigma^{(2)}_{xx;z}\)、\(\sigma^{(3)}_{xxx;z}\)，
+  纵向响应 \(\sigma^{(1)}_{x;x}\)、\(\sigma^{(2)}_{xx;x}\)、\(\sigma^{(3)}_{xxx;x}\)。
+\item \(YZ\) 器件：电流沿 \(y\)，在 \(z\) 方向测量横向电压，
+  对应横向响应 \(\sigma^{(1)}_{y;z}\)、\(\sigma^{(2)}_{yy;z}\)、\(\sigma^{(3)}_{yyy;z}\)，
+  纵向响应 \(\sigma^{(1)}_{y;y}\)、\(\sigma^{(2)}_{yy;y}\)、\(\sigma^{(3)}_{yyy;y}\)。
+\item \(ZX\) 器件：电流沿 \(z\)，在 \(x\) 方向测量横向电压，
+  对应横向响应 \(\sigma^{(1)}_{z;x}\)、\(\sigma^{(2)}_{zz;x}\)、\(\sigma^{(3)}_{zzz;x}\)，
+  纵向响应 \(\sigma^{(1)}_{z;z}\)、\(\sigma^{(2)}_{zz;z}\)、\(\sigma^{(3)}_{zzz;z}\)。
+\end{itemize}
+\subsection{理论预测汇总}
+
+表~\ref{tab:theory_prediction} 列出了根据对称性分析得到的不同器件上各阶响应的非零贡献来源。表格中的“零”表示该张量元受对称性严格禁止；“Drude”指来自分布函数修正的 Drude 型电导；“BCQ”和“AIC”分别指贝里曲率四极矩和额外带间贡献，两者对称性相同，总是共同出现；“QMQ”指量子度规四极矩。下面逐阶进行说明。
+
+\begin{table}[htbp]
+\centering
+\caption{基于磁点群 \(6'/m'mm'\) 的各阶电导率理论预测。表中列出不同器件上纵向和横向响应的非零贡献来源。}
+\label{tab:theory_prediction}
+\begin{tabular}{c|cc|cc|cc}
+\hline
+\multirow{2}{*}{器件} & \multicolumn{2}{c|}{一阶 (\(1\omega\))} & \multicolumn{2}{c|}{二阶 (\(2\omega\))} & \multicolumn{2}{c}{三阶 (\(\omega,3\omega\))} \\
+\cline{2-7}
+ & 纵向 & 横向 & 纵向 & 横向 & 纵向 & 横向 \\
+\hline
+\(XZ\) (\(I\parallel x,V_z\)) & Drude & 0 & 0 & 0 & Drude+QMQ & BCQ+AIC \\
+\(YZ\) (\(I\parallel y,V_z\)) & Drude & 0 & 0 & 0 & Drude+QMQ & 0 \\
+\(ZX\) (\(I\parallel z,V_x\)) & Drude & 0 & 0 & 0 & Drude+QMQ & 0 \\
+\hline
+\end{tabular}
+\end{table}
+
+值得注意的是，三阶电流并不全是\(3\omega\)频率，从
+\begin{equation}
+\cos^3 \omega t = \frac{3}{4}\cos\omega t + \frac{1}{4}\cos 3\omega t
+\label{eq:3to1} 
+\end{equation}
+
+
+可以容易看出三阶效应会贡献\(\omega,3\omega\)两种频率的响应，对称性完全相同，且比例大致为3:1，
+与机制来源无关。
+\subsection{小结}
+
+本节从对称性出发，给出了完整的理论预测：一阶只有纵向电阻，无本征霍尔效应；二阶完全消失；三阶纵向在所有方向均存在（Drude+QMQ），而本征横向三阶霍尔效应强烈依赖于电流与电压的取向，仅在 \(XZ\) 配置下非零（BCQ+AIC）。这为下一节与实验结果的直接对比提供了清晰的判据。
+
+\
