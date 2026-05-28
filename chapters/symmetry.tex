@@ -236,15 +236,15 @@ G^{ab}(-\mathbf{k}) = G^{ab}(\mathbf{k}) .
 基本四极矩 \(\Gamma^{abcd}=\int f_0\,\partial_{a}\partial_{b}\partial_{c}\partial_{d}\varepsilon\) 对四个指标完全对称。在 \(6'/m'mm'\) 下存在三个独立参数 \(\Gamma_{0},\Gamma_{1},\Gamma_{2}\)，非零分量满足
 \begin{equation}
 \begin{aligned}
-  \Gamma^{xxxx} &= \Gamma^{yyyy} = \Gamma_{0},\\
-  \Gamma^{xxyy} &= \Gamma^{xyxy} = \Gamma^{xyyx} = \Gamma^{yxxy}
-                = \Gamma^{yxyx} = \Gamma^{yyxx} = \frac{\Gamma_{0}}{3},\\
+  \Gamma^{zzzz} &= \Gamma_{0},\\
   \Gamma^{xxzz} &= \Gamma^{xzxz} = \Gamma^{xzzx}
                 = \Gamma^{yyzz} = \Gamma^{yzyz} = \Gamma^{yzzy}
                 = \Gamma^{zxxz} = \Gamma^{zxzx}  \\
                &\qquad = \Gamma^{zyyz} = \Gamma^{zyzy}
                 = \Gamma^{zzxx} = \Gamma^{zzyy} = \Gamma_{1},\\
-  \Gamma^{zzzz} &= \Gamma_{2}.
+  \Gamma^{xxxx} &= \Gamma^{yyyy} = \Gamma_{2},\\
+  \Gamma^{xxyy} &= \Gamma^{xyxy} = \Gamma^{xyyx} = \Gamma^{yxxy}
+                = \Gamma^{yxyx} = \Gamma^{yyxx} = \frac{\Gamma_{2}}{3}.
 \end{aligned}
 \end{equation}
 三阶 Drude 电导率正比于该四极矩本身（全对称性保证指标顺序可任意排列）：
@@ -291,51 +291,49 @@ G^{ab}(-\mathbf{k}) = G^{ab}(\mathbf{k}) .
 
 \subsection{量子度规四极矩及电导率}
 
-基本四极矩 \(g^{abcd} = \int f_0\,\partial_{a}\partial_{b}G^{cd}\) 满足前两指标对称、后两指标对称。在磁点群 \(6'/m'mm'\) 下存在六个独立参数 \(g_{0},g_{1},g_{2},g_{3},g_{4},g_{5}\)，非零分量关系为
+基本四极矩 \(G^{abcd} = \int f_0\,\partial_{a}\partial_{b}G^{cd}\) 满足前两指标对称、后两指标对称。在磁点群 \(6'/m'mm'\) 下存在五个独立参数 \(G_{0},G_{1},G_{2},G_{3},G_{4}\)，非零分量关系为
 \begin{equation}
 \begin{aligned}
-  g^{xxxx} &= g^{yyyy} = g_{1},\\
-  g^{xxyy} &= g^{yyxx} = g_{0},\\
-  g^{xyxy} &= g^{xyyx} = g^{yxxy} = g^{yxyx} = -\frac{g_{0}}{2} + \frac{g_{1}}{2},\\
-  g^{xxzz} &= g^{yyzz} = g_{2},\\
-  g^{xzxz} &= g^{xzzx} = g^{yzyz} = g^{yzzy}
-            = g^{zxxz} = g^{zxzx} = g^{zyyz} = g^{zyzy} = g_{3},\\
-  g^{zzxx} &= g^{zzyy} = g_{4},\\
-  g^{zzzz} &= g_{5}.
+  G^{zzzz} &= G_{0},\\
+  G^{xzxz} &= G^{xzzx} = G^{zxxz} = G^{zxzx}
+            = G^{yzyz} = G^{yzzy} = G^{zyyz} = G^{zyzy} = G_{1},\\
+  G^{xxzz} &= G^{yyzz} = G_{2},\\
+  G^{zzxx} &= G^{zzyy} = G_{3},\\
+  G^{xxxx} &= G^{xxyy} = G^{yyxx} = G^{yyyy} = G_{4}.
 \end{aligned}
 \end{equation}
 电导率与四极矩的关系为
 \begin{equation}
   \sigma^{(3)}_{\mathrm{QMQ}, abc;d} \propto
-    \frac{1}{3}\Bigl[\,2(g_{adbc}+g_{bdac}+g_{cdab})
-                 - (g_{acbd}+g_{bcad}+g_{abcd})\Bigr],
+    \frac{1}{3}\Bigl[\,2(G_{adbc}+G_{bdac}+G_{cdab})
+                 - (G_{acbd}+G_{bcad}+G_{abcd})\Bigr],
 \end{equation}
 代入后可得
 \begin{equation}
 \begin{aligned}
   \sigma^{(3)}_{\mathrm{QMQ}, xxx;x}
-  = \sigma^{(3)}_{\mathrm{QMQ}, yyy;y} &\propto 3\,g_{1},\\[2pt]
+  = \sigma^{(3)}_{\mathrm{QMQ}, yyy;y} &\propto 3\,G_{4},\\[2pt]
   \sigma^{(3)}_{\mathrm{QMQ}, xxy;y}
   = \sigma^{(3)}_{\mathrm{QMQ}, xyy;x}
   = \sigma^{(3)}_{\mathrm{QMQ}, yxx;y}
   = \sigma^{(3)}_{\mathrm{QMQ}, yyx;x}
   = \sigma^{(3)}_{\mathrm{QMQ}, xyx;y}
-  = \sigma^{(3)}_{\mathrm{QMQ}, yxy;x} &\propto g_{1},\\[2pt]
+  = \sigma^{(3)}_{\mathrm{QMQ}, yxy;x} &\propto G_{4},\\[2pt]
   \sigma^{(3)}_{\mathrm{QMQ}, xxz;z}
   = \sigma^{(3)}_{\mathrm{QMQ}, xzx;z}
   = \sigma^{(3)}_{\mathrm{QMQ}, yyz;z}
   = \sigma^{(3)}_{\mathrm{QMQ}, yzy;z}
   = \sigma^{(3)}_{\mathrm{QMQ}, zxx;z}
   = \sigma^{(3)}_{\mathrm{QMQ}, zyy;z}
-  &\propto -\,g_{2} + 2\,g_{3} + 2\,g_{4},\\[2pt]
+  &\propto -\,G_{2} + 2\,G_{1} + 2\,G_{3},\\[2pt]
   \sigma^{(3)}_{\mathrm{QMQ}, xzz;x}
   = \sigma^{(3)}_{\mathrm{QMQ}, yzz;y}
   = \sigma^{(3)}_{\mathrm{QMQ}, zxz;x}
   = \sigma^{(3)}_{\mathrm{QMQ}, zyz;y}
   = \sigma^{(3)}_{\mathrm{QMQ}, zzx;x}
   = \sigma^{(3)}_{\mathrm{QMQ}, zzy;y}
-  &\propto 2\,g_{2} + 2\,g_{3} - g_{4},\\[2pt]
-  \sigma^{(3)}_{\mathrm{QMQ}, zzz;z} &\propto 3\,g_{5}.
+  &\propto 2\,G_{2} + 2\,G_{1} - G_{3},\\[2pt]
+  \sigma^{(3)}_{\mathrm{QMQ}, zzz;z} &\propto 3\,G_{0}.
 \end{aligned}
 \end{equation}
 QMQ 贡献可同时产生纵向和横向三阶信号，且其各向异性弱于 BCQ。
@@ -401,4 +399,73 @@ AIC 基本张量 \(R^{abcd} = \int f_0\,\frac{2}{3\varepsilon_{n\bar{n}}}\,G^{ab
 
 本节从对称性出发，给出了完整的理论预测：一阶只有纵向电阻，无本征霍尔效应；二阶完全消失；三阶纵向在所有方向均存在（Drude+QMQ），而本征横向三阶霍尔效应强烈依赖于电流与电压的取向，仅在 \(XZ\) 配置下非零（BCQ+AIC）。这为下一节与实验结果的直接对比提供了清晰的判据。
 
-\
+\section{旋转角度依赖的非线性响应}
+\label{sec:CrSb_application}
+
+以上对称性分析给出了各阶电导率张量的非零分量。本节进一步分析当器件在晶体平面内旋转时，一阶和三阶横向信号的连续角度依赖关系，推导出可直接与实验对比的谐波展开形式。
+
+\subsection{一阶响应的旋转角度依赖}
+
+考虑 \(x\)-\(z\) 平面内的二维电导率张量，其一般形式为
+\begin{equation}
+  \sigma^{(1)} = \begin{pmatrix}
+    \sigma_{xx} & \sigma_H \\
+    -\sigma_H & \sigma_{zz}
+  \end{pmatrix},
+  \label{eq:sigma_2d}
+\end{equation}
+其中 \(\sigma_H\) 表示可能的反常霍尔电导（反对称部分），\(\sigma_{xx}\neq\sigma_{zz}\) 为纵向 Drude 电导的各向异性。当器件相对于晶体主轴绕 \(y\) 轴旋转 \(\phi\) 角时，新坐标系下的电导率张量为 \(\tilde{\sigma}=R_\phi\sigma^{(1)} R_\phi^{\mathsf{T}}\)，旋转矩阵
+\begin{equation}
+  R_\phi = \begin{pmatrix}
+    \cos\phi & \sin\phi \\
+    -\sin\phi & \cos\phi
+  \end{pmatrix}.
+\end{equation}
+直接计算可得横向电导分量
+\begin{equation}
+  \tilde{\sigma}_{12}(\phi) = \sigma_H + \frac{\sigma_{zz}-\sigma_{xx}}{2}\,\sin 2\phi.
+  \label{eq:sigma12_rot}
+\end{equation}
+
+式~\eqref{eq:sigma12_rot} 两项有截然不同的物理来源：\(\sigma_H\) 为二维反对称张量，旋转下不变，给出常数背景；\(\frac{\sigma_{zz}-\sigma_{xx}}{2}\sin 2\phi\) 来自纵向电导率各向异性导致的横向泄漏，\(\phi=0\) 时消失。一阶电导率为 rank-2 张量，旋转携带两个 \(R_\phi\) 因子，最高只能产生 \(\sin 2\phi\) 谐波。对 CrSb，\(6'/m'mm'\) 强制 \(\sigma_H=0\)，故预言纯 \(\sin 2\phi\) 信号，无常数偏移——已被圆形 Hall bar 实验直接证实（见第~\ref{fig:angle_fit} 节）。
+
+\subsection{三阶响应的旋转角度依赖：四阶张量转动与谐波展开}
+
+三阶电导率 \(\sigma_{abcd}^{(3)}\) 是 rank-4 张量。在 \(x\)-\(z\) 平面内绕 \(y\) 轴旋转 \(\phi_E\) 时，需同时旋转四个指标：
+\begin{equation}
+  \sigma'_{abcd}(\phi_E) = R_{ae}(\phi_E)R_{bf}(\phi_E)R_{cg}(\phi_E)R_{dh}(\phi_E)\,\sigma_{efgh}^{(3)},
+  \label{eq:rank4_rotation}
+\end{equation}
+其中三维旋转矩阵为
+\begin{equation}
+  R(\phi_E) = \begin{pmatrix}
+    \cos\phi_E & 0 & \sin\phi_E \\
+    0 & 1 & 0 \\
+    -\sin\phi_E & 0 & \cos\phi_E
+  \end{pmatrix}.
+  \label{eq:R3d}
+\end{equation}
+
+将前文对称性分析给出的非零张量分量（Drude 四极矩 \(\Gamma_i\)、BCQ 参数 \(Q_0\)、QMQ 参数 \(G_i\)）代入式~\eqref{eq:rank4_rotation}，针对实验测量的 \(\sigma_{zxxx}\) 分量展开。四个旋转矩阵产生 \(\sin\phi_E\) 和 \(\cos\phi_E\) 的四次单项式（\(\sin^3\phi_E\cos\phi_E\)、\(\sin\phi_E\cos^3\phi_E\)、\(\sin^2\phi_E\cos^2\phi_E\)、\(\cos^4\phi_E\)），各项系数由 \(\Gamma_i\)、\(Q_0\)、\(G_i\) 线性组合给出。利用三角恒等式化为低次谐波，合并后得：
+\begin{equation}
+  \sigma_{zxxx}(\phi_E) = \mathcal{A} + \mathcal{B}\cos(2\phi_E) + \mathcal{C}\sin(2\phi_E) + \mathcal{D}\sin(4\phi_E).
+  \label{eq:sigma_angle_expand}
+\end{equation}
+各系数与微观参数的关系为
+\begin{equation}
+  \mathcal{A} = \mathcal{B} = -\frac{1}{2}\,Q_0,
+  \label{eq:AB_eq}
+\end{equation}
+\begin{align}
+  \mathcal{C} &= \frac{1}{4}(\Gamma_0 - \Gamma_2) + \frac{1}{4}(G_0 + G_1 - 3G_2 + 3G_3 - G_4), \label{eq:C_coef}\\
+  \mathcal{D} &= \frac{1}{8}(-\Gamma_0 + 6\Gamma_1 - \Gamma_2) + \frac{1}{8}(-G_0 + G_1 + G_2 + G_3 - G_4). \label{eq:D_coef}
+\end{align}
+
+式~\eqref{eq:AB_eq}--\eqref{eq:D_coef} 包含三层关键信息：
+\begin{enumerate}
+  \item \textbf{\(\mathcal{A}=\mathcal{B}=-Q_0/2\) 是 BCQ 的独特指纹。} 常数项和 \(\cos 2\phi_E\) 系数由 \(Q_0\) 唯一决定，与 Drude、QMQ 无关。实验上同时观测到 \(\mathcal{A}\neq 0\) 且 \(\mathcal{A}=\mathcal{B}\) 构成 BCQ 机制的可证伪判据。
+  \item \textbf{\(\mathcal{C}\) 和 \(\mathcal{D}\) 由 Drude 与 QMQ 共同贡献。} \(\Gamma_0-\Gamma_2\) 反映 \(z/x\) 轴 Drude 电导各向异性；\(\mathcal{D}\) 为 rank-4 张量特有的 \(\sin 4\phi_E\) 高次谐波。\(\cos 4\phi_E\) 项因 BCQ 与 Drude/QMQ 贡献恰好抵消而缺失。
+  \item \textbf{内禀相位偏移。} \(\mathcal{B}\cos 2\phi_E + \mathcal{C}\sin 2\phi_E = \mathcal{A}'\sin(2\phi_E + \alpha)\)，\(\tan\alpha = \mathcal{B}/\mathcal{C}\)，\(\alpha\) 直接度量 BCQ（\(\mathcal{B}\)）与 Drude/QMQ（\(\mathcal{C}\)）的相对强度。
+\end{enumerate}
+
+\textbf{一阶与三阶角度依赖的对比。} 一阶为 rank-2 张量（旋转两个 \(R_\phi\)），仅出 \(\sin 2\phi\)；三阶为 rank-4 张量（旋转四个 \(R(\phi_E)\)），出常数项、\(\sin 2\phi_E\)、\(\cos 2\phi_E\)、\(\sin 4\phi_E\) 四种谐波分量。两者角度分布的本质差异源于张量阶数不同，这本身就是非线性霍尔效应属于高阶响应的直接实验证据。实验验证见第~\ref{fig:angle_fit} 节。
